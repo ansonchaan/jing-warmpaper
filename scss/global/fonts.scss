@@ -1,12 +1,30 @@
-$defaultFont: 'Noto Serif TC', serif;
-
-.sans{
-  $defaultFont: 'Noto Serif TC', sans-serif;
+@font-face {
+  font-family: 'Okta Neue';
+  src: url('/fonts/OktaNeue-Black.woff2') format('woff2'),
+      url('/fonts/OktaNeue-Black.woff') format('woff'),
+      url('/fonts/OktaNeue-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-.m{
-  font-weight: 500;
+@font-face {
+  font-family: 'Okta Neue';
+  src: url('/fonts/OktaNeue-Regular.woff2') format('woff2'),
+      url('/fonts/OktaNeue-Regular.woff') format('woff'),
+      url('/fonts/OktaNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
+
+
+
+$defaultFont: 'Okta Neue', sans-serif;
+
+// .m{
+//   font-weight: 500;
+// }
 .b{
   font-weight: 900;
 }

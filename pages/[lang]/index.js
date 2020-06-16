@@ -13,7 +13,14 @@ const Home = () => {
 
   return (
     <div id="home">
-      
+      <div id="banner" className="center">
+        <div className="bigTitle b">A Digital Agency.</div>
+        <div id="bg">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   )
 }
