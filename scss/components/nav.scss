@@ -1,0 +1,20 @@
+#nav{
+    position: fixed;
+    #logo{
+        position: absolute;
+        top:rem-calc(50);
+        left:rem-calc(103);
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        &:before{
+            content:'';
+            width: rem-calc(42);
+            height: rem-calc(50);
+            background:url('/images/logo.svg') no-repeat;
+            background-size:100%;
+            margin-right:rem-calc(24);
+            display: block;
+        }
+    }
+}
