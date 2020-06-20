@@ -1,15 +1,41 @@
-import { useEffect } from 'react'
-import { adjustFontSize } from '../globalFunc'
-import { wrapper } from '../store'
+import { useEffect, useState, useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { SmoothScroll, usePrevious, adjustFontSize } from '../src/globalFunc'
+import { wrapper } from '../src/store'
+import { useRouter } from 'next/router'
 
 // Components
-import Main from './Main'
+import Nav from '../src/components/Nav'
+// import Footer from '../src/components/Footer'
 
 // scss
-import '../scss/style.scss';
-
+import '../src/scss/style.scss';
 
 const MyApp = ({ Component, pageProps }) => {
+    const [page, setPage] = useState(null);
+
+    const prevPage = usePrevious(page);
+    const dispatch = useDispatch();
+    const language = useSelector(state => state.language);
+    const route = useRouter();
+    const {pathname, basePath} = route;
+
+    const smooth = useRef(null);
+    const scrollWrap = useRef(null);
+
+    useEffect(()=>{
+        const urlArray = pathname.split('/');
+        urlArray.shift();
+        const isMatch = urlArray[basePath ? 2 : 1];
+        setPage(isMatch ? urlArray[basePath ? 2 : 1] + (urlArray[basePath ? 3 : 2] ? 'detail' : '') : 'home');
+
+        if(page !== prevPage && page !== null){
+            dispatch({type:'UPDATE_PAGE', page:page});
+            if(smooth.current)
+                smooth.current.reset();
+        }
+    })
+
     useEffect(()=>{
         adjustFontSize();
         window.addEventListener('resize', ()=>adjustFontSize());
@@ -18,10 +44,25 @@ const MyApp = ({ Component, pageProps }) => {
         }
     },[])
 
+    
+    useEffect(()=>{
+        smooth.current = new SmoothScroll(scrollWrap.current,(s, y, h) => {});
+        return () => { 
+            smooth.current.off();
+            smooth.current = null;
+        }
+    },[])
+
     return (
-        <Main>
-            <Component {...pageProps} />
-        </Main>
+        <div id="bodyWrap" className={language}>
+            <div id="mainWrap">
+                <div ref={scrollWrap} id="scrollWrap">
+                    <Component {...pageProps} />
+                    {/* <Footer/> */}
+                </div>
+            </div>
+            <Nav/>
+        </div>
     )
 }
 

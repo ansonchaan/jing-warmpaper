@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { wrapper } from '../../store'
+import { wrapper } from '../../src/store'
 import { useRouter } from 'next/router';
 
 const Home = () => {
