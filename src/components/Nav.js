@@ -52,6 +52,10 @@ const Nav = (props) => {
         }
     }
 
+    const onClickMenuItem = () => {
+        onOpenMenu(false);
+    }
+
     return(
         <div id="nav">
             <Link href="/[lang]" as={`/${language}`}><a id="logo" className="h3 b"><span ref={props.logonameElem}>Warmpaper Design</span></a></Link>
@@ -75,7 +79,7 @@ const Nav = (props) => {
             <div id="menu" className={`${activeMenu ? 'active' : ''} big b`}>
                 {
                     pages.map((v,i)=>{
-                        return <Link key={i} href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}><div><a className={page === v[0] ? 'active' : ''}>{v[1]}<span></span></a></div></Link>
+                        return <Link key={i} href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}><div><a className={page === v[0] ? 'active' : ''} onClick={onClickMenuItem}>{v[1]}<span></span></a></div></Link>
                     })
                 }
             </div>
