@@ -140,6 +140,64 @@
         visibility: hidden;
       }
     }
+
+    .label2{
+      background:$purpleblue;
+      border-radius: rem-calc(100);
+      color:$white;
+      padding:rem-calc(15 25 15 74);
+      position: relative;
+      letter-spacing: rem-calc(.6);
+      &:before{
+        content:'2';
+        width:rem-calc(29);
+        height:rem-calc(29);
+        border:rem-calc(3) solid $white;
+        border-radius: rem-calc(5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include setFont(25, 35);
+        white-space: nowrap;
+        position: absolute;
+        left:rem-calc(19);
+        top:50%;
+        transform: translate3d(0,-50%,0);
+      }
+      &:after{
+        content:'.';
+        position: absolute;
+        top:47%;
+        left:rem-calc(58);
+        transform: translate3d(0,-50%,0);
+      }
+    }
+    
+    .corner{
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+      transition: clip-path 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+      &:hover{
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{rem-calc(40)}),calc(100% - #{rem-calc(40)}) 100%, 0 100%);
+          &:before{
+              border-width: rem-calc(40 40) 0 0;
+          }
+      }
+      &:before{
+          content:'';
+          width:0;
+          height:0;
+          display: block;
+          position: absolute;
+          bottom:0;
+          right:0;
+          border-width: 0;
+          border-style: solid;
+          border-color: $purple $white;
+          box-shadow: rem-calc(-3 -3 5) rgba(0, 0, 0, 0.3);
+          transition: border-width 0.5s cubic-bezier(0.65, 0, 0.35, 1)
+      }
+    }
   
     @import "./global/scrollbar";
   }

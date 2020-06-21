@@ -50,10 +50,14 @@ h3, .h3 {
 h4, .h4 {
   @include setFont(25, 35);
 }
-h5 {
-  @include setFont(15, 20);
+h5, .h5 {
+  @include setFont(20, 30);
 }
 h6, .h6 {
+  @include setFont(15, 20);
+}
+
+.small{
   @include setFont(12, 18);
 }
 

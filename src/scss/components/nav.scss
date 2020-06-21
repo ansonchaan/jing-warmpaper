@@ -155,8 +155,8 @@
         position: fixed;
         left:0;
         top:0;
-        padding-left:rem-calc(164);
-        background:$lightgray;
+        padding-left:rem-calc(134);
+        background: url($basePath+'/images/paper.png') repeat;
         box-shadow: rem-calc(10 10 50) #0000005C;
         display: flex;
         flex-direction: column;
@@ -178,6 +178,18 @@
             top:50%;
             left:50%;
             transform: translate3d(0%,-11%,0) rotate(14deg);
+        }
+        &:after{
+            content:'';
+            width:rem-calc(640);
+            height:rem-calc(710);
+            background:url($basePath+'/images/logo.svg') no-repeat;
+            background-size:100%;
+            position: absolute;
+            top:18%;
+            left:33%;
+            opacity: .05;
+            transform: translate3d(0,0,0) rotate(44deg);
         }
         div{
             a{

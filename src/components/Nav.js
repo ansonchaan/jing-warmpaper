@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import gsap from 'gsap'
 // import { useRouter } from 'next/router';
 
-const Nav = () => {
+const Nav = (props) => {
     const language = useSelector(state => state.language);
     const page = useSelector(state => state.page);
 
@@ -54,7 +54,7 @@ const Nav = () => {
 
     return(
         <div id="nav">
-            <div id="logo" className="h3 b">Warmpaper Design</div>
+            <Link href="/[lang]" as={`/${language}`}><a id="logo" className="h3 b"><span ref={props.logonameElem}>Warmpaper Design</span></a></Link>
             <div id="menuBtn" className={activeMenu ? 'active' : ''}>
                 <div id="default" onClick={()=>!activeMenu && onOpenMenu(true)}>
                     <span><span></span></span>

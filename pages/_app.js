@@ -20,6 +20,7 @@ const MyApp = ({ Component, pageProps }) => {
     const route = useRouter();
     const {pathname, basePath} = route;
 
+    const logonameElem = useRef(null);
     const smooth = useRef(null);
     const scrollWrap = useRef(null);
 
@@ -46,7 +47,9 @@ const MyApp = ({ Component, pageProps }) => {
 
     
     useEffect(()=>{
-        smooth.current = new SmoothScroll(scrollWrap.current,(s, y, h) => {});
+        smooth.current = new SmoothScroll(scrollWrap.current,(s, y, h) => {
+            logonameElem.current.style.transform = `translate3d(0,${y}px,0)`;
+        });
         return () => { 
             smooth.current.off();
             smooth.current = null;
@@ -61,7 +64,7 @@ const MyApp = ({ Component, pageProps }) => {
                     {/* <Footer/> */}
                 </div>
             </div>
-            <Nav/>
+            <Nav logonameElem={logonameElem}/>
         </div>
     )
 }
