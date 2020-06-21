@@ -1,2 +1,50 @@
 #footer{
+    #wrap{
+        padding-top:rem-calc(67);
+        padding-bottom:rem-calc(57);
+        #logo{
+            width:rem-calc(72);
+            height:rem-calc(79);
+            background:url($basePath+'/images/logo.svg') no-repeat;
+            background-size:100%;
+            margin-bottom:rem-calc(57);
+            margin-left: rem-calc(-9);
+            position: relative;
+            &:after{
+                content:'';
+                width:42.8vw;
+                height:rem-calc(2);
+                background:$black;
+                position: absolute;
+                left:rem-calc(142);
+                top:50%;
+                transform: translate3d(0,-50%,0);
+            }
+        }
+        #bottom{
+            margin-top:rem-calc(102);
+            display: flex;
+            #left{
+                h3{
+                    letter-spacing: rem-calc(1.5);
+                }
+                a{
+                    letter-spacing: rem-calc(1);
+                    margin-top:rem-calc(7);
+                    color:$black;
+                }
+            }
+            #right{
+                padding-left:rem-calc(80);
+                padding-bottom:rem-calc(4);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                opacity: .5;
+                h6{
+                    margin-bottom:rem-calc(9);
+                }
+            }
+        }
+    }
 }

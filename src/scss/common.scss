@@ -25,17 +25,17 @@
     #bodyWrap{
       width:100%;
       height:100%;
-      #mainWrap {
+      #mainWrap{
         width:100%;
         height:100%;
         #scrollWrap{
-          &>div{
-            width:100%;
-            padding-top:rem-calc(235);
-            &#home{
-              padding-top:0;
-            }
-          }
+          // &>div{
+          //   width:100%;
+          //   padding-top:rem-calc(235);
+          //   &#home{
+          //     padding-top:0;
+          //   }
+          // }
         }
       }
     }
@@ -132,13 +132,6 @@
     }
     :-ms-input-placeholder {
       color: #000;
-    }
-  
-    #mainWrap {
-      &.hide {
-        opacity: 0;
-        visibility: hidden;
-      }
     }
 
     .label2{

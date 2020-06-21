@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 // Components
 import Nav from '../src/components/Nav'
-// import Footer from '../src/components/Footer'
+import Footer from '../src/components/Footer'
 
 // scss
 import '../src/scss/style.scss';
@@ -61,7 +61,7 @@ const MyApp = ({ Component, pageProps }) => {
             <div id="mainWrap">
                 <div ref={scrollWrap} id="scrollWrap">
                     <Component {...pageProps} />
-                    {/* <Footer/> */}
+                    <Footer/>
                 </div>
             </div>
             <Nav logonameElem={logonameElem}/>
