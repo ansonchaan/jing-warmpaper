@@ -27,16 +27,21 @@ const MyApp = ({ Component, pageProps }) => {
 
     useEffect(()=>{
         const urlArray = pathname.split('/');
-        urlArray.shift();
+        urlArray.splice(0,1);
+        if('/'+urlArray[0] === basePath){
+            urlArray.splice(0,1);
+        }
         const isMatch = urlArray[1];
         setPage(isMatch ? urlArray[1] + (urlArray[2] ? 'detail' : '') : 'home');
-
+    },[pathname])
+    
+    useEffect(()=>{
         if(page !== prevPage && page !== null){
             dispatch({type:'UPDATE_PAGE', page:page});
             if(smooth.current)
                 smooth.current.reset();
         }
-    })
+    },[page])
 
     useEffect(()=>{
         adjustFontSize();
