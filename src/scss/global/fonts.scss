@@ -44,6 +44,9 @@ $defaultFont: 'Okta Neue', sans-serif;
   font-weight: 200;
 }
 
+.ultra{
+  @include setFont(200, 130);
+}
 
 .big{
   @include setFont(80, 90);
