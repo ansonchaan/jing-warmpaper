@@ -27,10 +27,8 @@ const Contact = () => {
             <div id="wrap" className="center">
                 <h4>The best way to understand us is to talk to us. We”ll let you choose how.</h4>
                 <div id="info">
+                    <div id="title" className="bigTitle b">Contact</div>
                     <div id="infoWrap">
-                        <div id="title" className="bigTitle b">
-                            Contact
-                        </div>
                         <div id="tel" className="bigTitle l">+ 852 2146 2890</div>
                         <h3>Info@Warmpaper-Design.Com</h3>
                         <h6>Talk to us about your exciting project.</h6>

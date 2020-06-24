@@ -18,24 +18,26 @@
             position: relative;
             padding:rem-calc(30 42 13);
             color:#515F7A;
-            &:before{
-                content:'';
-                width:100%;
-                height:100%;
-                position: absolute;
-                top:0;
-                left:0;
-                z-index: 1;
-                background:url($basePath+'/images/contactbg.png') no-repeat;
-                mix-blend-mode: lighten;
+            background:url($basePath+'/images/contactbg.png') no-repeat;
+            // &:before{
+            //     content:'';
+            //     width:100%;
+            //     height:100%;
+            //     position: absolute;
+            //     top:0;
+            //     left:0;
+            //     z-index: 1;
+            //     background:url($basePath+'/images/contactbg.png') no-repeat;
+            //     // mix-blend-mode: lighten;
+            // }
+            #title{
+                color:$black;
+                margin-bottom:rem-calc(33);
+                mix-blend-mode: soft-light;
             }
             #infoWrap{
                 position: relative;
                 z-index: 2;
-                #title{
-                    // color:transparent;
-                    margin-bottom:rem-calc(33);
-                }
                 #tel{
                     margin-bottom:rem-calc(11);
                 }
