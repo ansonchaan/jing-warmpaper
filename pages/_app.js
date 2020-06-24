@@ -17,6 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
     const prevPage = usePrevious(page);
     const dispatch = useDispatch();
     const language = useSelector(state => state.language);
+    const currentpage = useSelector(state => state.page);
     const route = useRouter();
     const {pathname, basePath} = route;
 
@@ -27,8 +28,8 @@ const MyApp = ({ Component, pageProps }) => {
     useEffect(()=>{
         const urlArray = pathname.split('/');
         urlArray.shift();
-        const isMatch = urlArray[basePath ? 2 : 1];
-        setPage(isMatch ? urlArray[basePath ? 2 : 1] + (urlArray[basePath ? 3 : 2] ? 'detail' : '') : 'home');
+        const isMatch = urlArray[1];
+        setPage(isMatch ? urlArray[1] + (urlArray[2] ? 'detail' : '') : 'home');
 
         if(page !== prevPage && page !== null){
             dispatch({type:'UPDATE_PAGE', page:page});
@@ -61,7 +62,7 @@ const MyApp = ({ Component, pageProps }) => {
             <div id="mainWrap">
                 <div ref={scrollWrap} id="scrollWrap">
                     <Component {...pageProps} />
-                    <Footer/>
+                    {currentpage !== 'contact' && <Footer/> }
                 </div>
             </div>
             <Nav logonameElem={logonameElem}/>
