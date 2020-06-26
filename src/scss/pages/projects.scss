@@ -1,0 +1,47 @@
+#projects{
+    background:url($basePath+'/images/paper.png') repeat;
+    #tagWrap{
+        background:#F7F6F1;
+        color:$drakblue;
+        position: relative;
+        padding-top:rem-calc(54);
+        padding-bottom:rem-calc(71);
+        padding-right:rem-calc(80);
+        line-height: rem-calc(45);
+        &:before{
+            content:'';
+            width:100%;
+            height:rem-calc(1);
+            position: absolute;
+            left:0;
+            top:rem-calc(23);
+            background:$drakgray;
+        }
+        &:after{
+            content:'';
+            width:100%;
+            height:rem-calc(1);
+            position: absolute;
+            left:0;
+            bottom:rem-calc(23);
+            background:$drakgray;
+        }
+        p{
+            color:$gray;
+            padding-bottom:rem-calc(9);
+        }
+        .t{
+            width:0;
+            height:0;
+            position: relative;
+            display: inline-block;
+            &>span{
+                position: absolute;
+                transform: translate3d(-50%,-50%,0);
+                white-space: nowrap;
+            }
+        }
+        .tag{
+        }
+    }
+}

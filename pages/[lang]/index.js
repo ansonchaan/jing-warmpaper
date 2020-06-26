@@ -42,7 +42,7 @@ const Home = () => {
                 <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
                 </a>
               </Link>
-              <span className="label2 h3 b">Websites</span>
+              <span className="tag7 h3 b">Websites</span>
             </div>
             <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link>
           </div>
