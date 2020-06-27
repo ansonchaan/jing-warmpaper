@@ -1,11 +1,12 @@
 // next.config.js
 const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
-const language = ['en']
+const language = ['en','tc','sc']
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = withCSS(withSass({
     distDir: 'build',
+    assetPrefix: !debug ? '/jing-warmpaper/' : '',
     exportTrailingSlash: isProd ? true : false,
     experimental: {
         basePath: isProd ? '/jing-warmpaper' : null
@@ -20,5 +21,18 @@ module.exports = withCSS(withSass({
         })
         console.log(pathMap)
         return pathMap;
-    }
+    },
+    // webpack: (config, { dev }) => {
+    //     // Perform customizations to webpack config
+    //     // console.log('webpack');
+    //     // console.log(config.module.rules, dev);
+    //     config.module.rules = config.module.rules.map(rule => {
+    //     if(rule.loader === 'babel-loader') {
+    //         rule.options.cacheDirectory = false
+    //     }
+    //     return rule
+    //     })
+    //     // Important: return the modified config
+    //     return config
+    // }
 }))
