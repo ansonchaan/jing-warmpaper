@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Okta Neue';
-  src: url('/fonts/OktaNeue-Black.woff2') format('woff2'),
-      url('/fonts/OktaNeue-Black.woff') format('woff'),
-      url('/fonts/OktaNeue-Black.ttf') format('truetype');
+  src: url($basePath+'/fonts/OktaNeue-Black.woff2') format('woff2'),
+      url($basePath+'/fonts/OktaNeue-Black.woff') format('woff'),
+      url($basePath+'/fonts/OktaNeue-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -10,9 +10,9 @@
 
 @font-face {
   font-family: 'Okta Neue';
-  src: url('/fonts/OktaNeue-Regular.woff2') format('woff2'),
-      url('/fonts/OktaNeue-Regular.woff') format('woff'),
-      url('/fonts/OktaNeue-Regular.ttf') format('truetype');
+  src: url($basePath+'/fonts/OktaNeue-Regular.woff2') format('woff2'),
+      url($basePath+'/fonts/OktaNeue-Regular.woff') format('woff'),
+      url($basePath+'/fonts/OktaNeue-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20,9 +20,9 @@
 
 @font-face {
   font-family: 'Okta Neue';
-  src: url('/fonts/OktaNeue-UltraLight.woff2') format('woff2'),
-      url('/fonts/OktaNeue-UltraLight.woff') format('woff'),
-      url('/fonts/OktaNeue-UltraLight.ttf') format('truetype');
+  src: url($basePath+'/fonts/OktaNeue-UltraLight.woff2') format('woff2'),
+      url($basePath+'/fonts/OktaNeue-UltraLight.woff') format('woff'),
+      url($basePath+'/fonts/OktaNeue-UltraLight.ttf') format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;

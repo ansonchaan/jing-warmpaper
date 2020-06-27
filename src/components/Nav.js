@@ -15,8 +15,8 @@ const Nav = (props) => {
     const pages = [['projects','Projects'],['solutions','Solutions'],['about','About'],['contact','Contact']];
 
     useEffect(()=>{
-        const menuText = document.querySelectorAll('#menu a');
-        const menuBrush = document.querySelectorAll('#menu a span');
+        const menuText = document.querySelectorAll('#menu #text');
+        const menuBrush = document.querySelectorAll('#menu #brush');
 
         const updateBrush = () => {
             for(let i=0; i<menuText.length; i++){
@@ -26,7 +26,7 @@ const Nav = (props) => {
             }
         }
 
-        updateBrush();
+        setTimeout(()=>{updateBrush()},300);
         window.addEventListener('resize', updateBrush, false);
         return()=>{
             window.removeEventListener('resize', updateBrush, false);
@@ -79,7 +79,9 @@ const Nav = (props) => {
             <div id="menu" className={`${activeMenu ? 'active' : ''} big b`}>
                 {
                     pages.map((v,i)=>{
-                        return <Link key={i} href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}><div><a className={page === v[0] ? 'active' : ''} onClick={onClickMenuItem}>{v[1]}<span></span></a></div></Link>
+                        return <Link key={i} href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}>
+                            <a className={page === v[0] ? 'active' : ''} onClick={onClickMenuItem}><span id="text">{v[1]}<span id="brush"></span></span></a>
+                        </Link>
                     })
                 }
             </div>

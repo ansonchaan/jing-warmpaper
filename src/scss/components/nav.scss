@@ -14,7 +14,7 @@
             content:'';
             width: rem-calc(42);
             height: rem-calc(50);
-            background:url('/images/logo.svg') no-repeat;
+            background:url($basePath+'/images/logo.svg') no-repeat;
             background-size:100%;
             margin-right:rem-calc(24);
             display: block;
@@ -179,6 +179,7 @@
             top:50%;
             left:50%;
             transform: translate3d(0%,-11%,0) rotate(14deg);
+            pointer-events: none;
         }
         &:after{
             content:'';
@@ -191,19 +192,22 @@
             left:33%;
             opacity: .05;
             transform: translate3d(0,0,0) rotate(44deg);
+            pointer-events: none;
         }
-        div{
-            a{
-                position: relative;
-                color:$black;
-                cursor: pointer;
-                &.active,
-                &:hover{
-                    span{
+        a{
+            color:$black;
+            cursor: pointer;
+            &.active,
+            &:hover{
+                #text{
+                    #brush{
                         width:109%;
                     }
                 }
-                span{
+            }
+            #text{
+                position: relative;
+                #brush{
                     width:0%;
                     height:100%;
                     background:url($basePath+'/images/brush.png') left center no-repeat;
