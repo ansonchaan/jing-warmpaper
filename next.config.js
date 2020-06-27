@@ -1,12 +1,12 @@
 // next.config.js
 const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
-const language = ['en','tc','sc']
+const language = ['en']
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = withCSS(withSass({
     distDir: 'build',
-    assetPrefix: !debug ? '/jing-warmpaper/' : '',
+    assetPrefix: isProd ? '/jing-warmpaper/' : '',
     exportTrailingSlash: isProd ? true : false,
     experimental: {
         basePath: isProd ? '/jing-warmpaper' : null
