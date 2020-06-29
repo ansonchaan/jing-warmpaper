@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { SmoothScroll, usePrevious, adjustFontSize } from '../src/globalFunc'
 import { wrapper } from '../src/store'
 import { useRouter } from 'next/router'
+import gsap from 'gsap';
 
 // Components
 import Nav from '../src/components/Nav'
@@ -22,6 +23,7 @@ const MyApp = ({ Component, pageProps }) => {
     const {pathname, basePath} = route;
 
     const logonameElem = useRef(null);
+    const footerElem = useRef(null);
     const smooth = useRef(null);
     const scrollWrap = useRef(null);
 
@@ -55,6 +57,12 @@ const MyApp = ({ Component, pageProps }) => {
     useEffect(()=>{
         smooth.current = new SmoothScroll(scrollWrap.current,(s, y, h) => {
             logonameElem.current.style.transform = `translate3d(0,${y}px,0)`;
+
+            if(!footerElem.current.className){
+                if(footerElem.current.getBoundingClientRect().top - window.innerHeight < 0){
+                    footerElem.current.className = 'active';
+                }
+            }
         });
         return () => { 
             smooth.current.off();
@@ -67,7 +75,7 @@ const MyApp = ({ Component, pageProps }) => {
             <div id="mainWrap">
                 <div ref={scrollWrap} id="scrollWrap">
                     <Component {...pageProps} />
-                    {currentpage !== 'contact' && <Footer/> }
+                    {currentpage !== 'contact' && <Footer footerElem={footerElem} /> }
                 </div>
             </div>
             <Nav logonameElem={logonameElem}/>

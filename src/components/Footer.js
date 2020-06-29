@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import Link from 'next/link'
 
-const Footer = () => {
+const Footer = props => {
     const language = useSelector(state => state.language);
 
     return (
-        <div id="footer">
+        <div ref={props.footerElem} id="footer">
             <div id="wrap" className="center">
                 <Link href="/[lang]" as={`/${language}`}><a id="logo"></a></Link>
                 <h2 className="b">We do digital like<br/> its our business.</h2>
@@ -22,7 +22,11 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <div id="fb"><a href="" target="_blank"></a></div>
+                <div id="ig"><a href="" target="_blank"></a></div>
             </div>
+            <div id="bg"></div>
+            <div id="bg2"></div>
         </div>
     )
 }
