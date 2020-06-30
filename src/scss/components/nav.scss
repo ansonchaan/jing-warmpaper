@@ -16,8 +16,12 @@
             height: rem-calc(50);
             background:url($basePath+'/images/logo.svg') no-repeat;
             background-size:100%;
-            margin-right:rem-calc(24);
             display: block;
+        }
+        span{
+            position: absolute;
+            top:rem-calc(3);
+            left:calc(100% + #{rem-calc(24)});
         }
     }
     #menuBtn{

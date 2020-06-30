@@ -42,6 +42,95 @@
             }
         }
         .tag{
+            cursor: pointer;
+            transition: transform .3s cubic-bezier(0.33, 1, 0.68, 1);
+            &:hover{
+                transform: translate3d(-50%,-50%,0) scale(.9);
+            }
+            &:active,
+            &.active{
+                transform: translate3d(-50%,-50%,0) scale(.8);
+            }
+        }
+    }
+    #projectListWrap{
+        padding:rem-calc(83 70 68);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        #projectList{
+            width:calc(100% + #{rem-calc(11)});
+            margin-left:rem-calc(-11);
+            margin-top:rem-calc(-28);
+            margin-bottom:rem-calc(60);
+            li{
+                width:calc(100% / 4 - #{rem-calc(11)});
+                overflow: hidden;
+                display: inline-block;
+                margin-left:rem-calc(11);
+                vertical-align: top;
+                &.space{
+                    width:20%;
+                    background:none;
+                    position: absolute;
+                    top:0;
+                    display: block !important;
+                    &:nth-last-child(1){
+                        height:rem-calc(155 - 11);
+                        left:calc(100% / 4 + 2%);
+                    }
+                    &:nth-last-child(2){
+                        height:rem-calc(39);
+                        right:0;
+                    }
+                }
+                #itemWrap{
+                    background:#92985A;
+                    margin-top:rem-calc(28);
+                    #wrap{
+                        display: flex;
+                        flex-direction: column;
+                        #imgWrap{
+                            width:100%;
+                            height:rem-calc(335);
+                            background:#7F6C43;
+                            #img{
+                                width:100%;
+                                height:100%;
+                                background-size:cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                mix-blend-mode:darken;
+                            }
+                        }
+                        #name{
+                            padding:rem-calc(15 24 38);
+                            line-height: rem-calc(30);
+                        }
+                    }
+                    #des{
+                        padding:rem-calc(0 24);
+                        line-height: rem-calc(12);
+                        opacity: .4;
+                    }
+                }
+            }
+        }
+        #more{
+            width:rem-calc(285);
+            height:rem-calc(93);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:#997670;
+            border:rem-calc(2) solid #997670;
+            border-radius: rem-calc(999);
+            cursor: pointer;
+            transition: all .2s cubic-bezier(0.33, 1, 0.68, 1);
+            &:hover{
+                color:$white;
+                background:#997670;
+            }
         }
     }
 }
