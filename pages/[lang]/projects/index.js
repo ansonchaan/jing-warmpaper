@@ -62,10 +62,8 @@ const Projects = () => {
 
     useEffect(()=>{
         if(iso.current) {
-            iso.current.destroy();
-            iso.current = new Isotope(projectListElem.current,{
-                stamp:'.space'
-            });
+            iso.current.reloadItems();
+            iso.current.arrange({stamp:'.space'});
         }
     },[data])
 
