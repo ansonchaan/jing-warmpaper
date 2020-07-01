@@ -7,7 +7,7 @@
         padding-top:rem-calc(54);
         padding-bottom:rem-calc(71);
         padding-right:rem-calc(80);
-        line-height: rem-calc(45);
+        line-height: rem-calc(41);
         &:before{
             content:'';
             width:100%;
@@ -65,7 +65,6 @@
             margin-bottom:rem-calc(60);
             li{
                 width:calc(100% / 4 - #{rem-calc(11)});
-                overflow: hidden;
                 display: inline-block;
                 margin-left:rem-calc(11);
                 vertical-align: top;
@@ -84,16 +83,195 @@
                         right:0;
                     }
                 }
+                &.cultural1{
+                    .corner{
+                        background:#DEC254;
+                        &:before{
+                            border-color:#BFA22C;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:rem-calc(40);
+                            left:rem-calc(50);
+                        }
+                        #wrap{
+                            #imgWrap{
+                                padding-top:rem-calc(51);
+                                background:#BFA22C;
+                            }
+                        }
+                    }
+                }
+                &.cultural2{
+                    .corner{
+                        background:#335FC0;
+                        &:before{
+                            border-color:#224692;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            bottom:rem-calc(35);
+                            left:rem-calc(50);
+                        }
+                        #wrap{
+                            flex-direction: column-reverse;
+                            #imgWrap{
+                                padding-top:rem-calc(51);
+                                background:#46546A;
+                                mix-blend-mode: soft-light;
+                            }
+                            #name{
+                                padding-top:rem-calc(15);
+                                padding-bottom:rem-calc(20);
+                            }
+                        }
+                    }
+                }
+                &.cultural3{
+                    .corner{
+                        background:#949971;
+                        &:before{
+                            border-color:#978668;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:rem-calc(270);
+                            left:rem-calc(-10);
+                        }
+                        #wrap{
+                            #imgWrap{
+                                background:#978668;
+                            }
+                        }
+                    }
+                }
+                &.development{
+                    .corner{
+                        background:#8656A7;
+                        &:before{
+                            border-color:#986BB0;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:rem-calc(70);
+                            left:rem-calc(-10);
+                        }
+                        #wrap{
+                            #imgWrap{
+                                background:#986BB0;
+                            }
+                        }
+                    }
+                }
+                &.mobileapp{
+                    .corner{
+                        background:#92985A;
+                        &:before{
+                            border-color:#7F6C43;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:0;
+                            left:rem-calc(50);
+                            transform: translate3d(0,-50%,0);
+                        }
+                        #wrap{
+                            #imgWrap{
+                                background:#7F6C43;
+                            }
+                        }
+                    }
+                }
+                &.ui{
+                    .corner{
+                        background:#979797;
+                        &:before{
+                            border-color:#828284;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:rem-calc(120);
+                            left:rem-calc(70);
+                        }
+                        #wrap{
+                            flex-direction: column-reverse;
+                            #imgWrap{
+                                background:#828284;
+                            }
+                            #name{
+                                padding-top:rem-calc(15);
+                                padding-bottom:rem-calc(20);
+                            }
+                        }
+                    }
+                }
+                &.website{
+                    .corner{
+                        background:#A462A2;
+                        &:before{
+                            border-color:#A487B7;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:rem-calc(-20);
+                            right:rem-calc(-30);
+                        }
+                        #wrap{
+                            #imgWrap{
+                                background:#A487B7;
+                            }
+                        }
+                    }
+                }
+                &.system{
+                    .corner{
+                        background:#C53358;
+                        &:before{
+                            border-color:#9c2543;
+                        }
+                    }
+                    #itemWrap{
+                        .tag{
+                            top:rem-calc(-10);
+                            right:rem-calc(50);
+                        }
+                        #wrap{
+                            flex-direction: column-reverse;
+                            #imgWrap{
+                                background:#463138;
+                                mix-blend-mode: hard-light;
+                            }
+                            #name{
+                                padding-top:rem-calc(53);
+                                padding-bottom:rem-calc(20);
+                            }
+                        }
+                        #des{
+                            height: rem-calc(70);
+                        }
+                    }
+                }
                 #itemWrap{
-                    background:#92985A;
+                    color:$black;
                     margin-top:rem-calc(28);
+                    position: relative;
+                    display: block;
+                    .tag{
+                        position: absolute;
+                    }
                     #wrap{
                         display: flex;
                         flex-direction: column;
                         #imgWrap{
                             width:100%;
                             height:rem-calc(335);
-                            background:#7F6C43;
                             #img{
                                 width:100%;
                                 height:100%;
@@ -104,14 +282,15 @@
                             }
                         }
                         #name{
-                            padding:rem-calc(15 24 38);
+                            padding:rem-calc(25 24 10);
                             line-height: rem-calc(30);
                         }
                     }
                     #des{
-                        padding:rem-calc(0 24);
+                        padding:rem-calc(18 24 10);
                         line-height: rem-calc(12);
                         opacity: .4;
+                        overflow: hidden;
                     }
                 }
             }
