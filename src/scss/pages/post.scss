@@ -1,0 +1,133 @@
+#post{
+    #featuredImage{
+        width:100%;
+        height:rem-calc(460);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #description{
+        background:#9EA058;
+        position: relative;
+        &:after{
+            content:'';
+            width:100%;
+            height:rem-calc(76);
+            background:url($basePath+'/images/paper_edge.png') center no-repeat;
+            background-size:cover;
+            position: absolute;
+            bottom:0;
+            left:0;
+        }
+        #wrap{
+            padding: rem-calc(44 0 127);
+            position: relative;
+            h1{
+                margin-bottom:rem-calc(28);
+                padding:rem-calc(0 6);
+            }
+            h2{
+                width:75%;
+                color:#41412D;
+                padding:rem-calc(0 6);
+            }
+            #info{
+                border-top:rem-calc(1) solid #707070;
+                margin-top:rem-calc(57);
+                li{
+                    color:#525252;
+                    margin-left:rem-calc(62);
+                    padding:rem-calc(42 6 0);
+                    display: inline-block;
+                    &:first-child{
+                        margin:0;
+                    }
+                }
+            }
+            #tag{
+                position: absolute;
+                top:rem-calc(68);
+                right:0;
+                display: flex;
+                flex-direction: column;
+                li{
+                    margin-top:rem-calc(26);
+                    text-align: center;
+                    &:first-child{
+                        margin:0;
+                    }
+                    span{
+                        box-shadow: 0px 3px 20px #00000029;
+                    }
+                }
+            }
+        }
+    }
+    #gallery{
+        background:#EFEFEF;
+        padding-top:rem-calc(129);
+        padding-bottom:rem-calc(152);
+        img{
+            display: inline-block;
+        }
+        #img{
+            margin-top:rem-calc(57);
+            &:first-child{
+                img{
+                    width:88.621%;
+                    text-align: center;
+                }
+            }
+        }
+        #imgR{
+            display: flex;
+            justify-content: flex-end;
+            margin-top:rem-calc(91);
+            img{
+                width: 67.3%;
+            }
+        }
+        #imgwithDes1{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top:rem-calc(169);
+            &+#img{
+                margin-top:rem-calc(97);
+            }
+            div{
+                width:rem-calc(756);
+                img{
+                    box-shadow: 0px 3px 6px #00000029;
+                }
+                h5{
+                    width:70%;
+                    margin-top:rem-calc(45);
+                }
+            }
+        }
+        #imgwithDes2{
+            display: flex;
+            align-items: flex-end;
+            margin-top:rem-calc(88);
+            &+#img{
+                margin-top:rem-calc(132);
+            }
+            img{
+                width:rem-calc(756);
+            }
+            h5{
+                padding-left:rem-calc(52);
+            }
+        }
+    }
+    #back{
+        width:100%;
+        height:rem-calc(152);
+        text-decoration: underline;
+        color:$white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

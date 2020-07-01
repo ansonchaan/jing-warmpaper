@@ -93,8 +93,9 @@
                     }
                     #itemWrap{
                         .tag{
-                            top:rem-calc(40);
-                            left:rem-calc(50);
+                            top:rem-calc(51);
+                            left:rem-calc(24);
+                            transform: translate3d(0,-50%,0);
                         }
                         #wrap{
                             #imgWrap{
@@ -113,8 +114,9 @@
                     }
                     #itemWrap{
                         .tag{
-                            bottom:rem-calc(35);
-                            left:rem-calc(50);
+                            bottom:rem-calc(5);
+                            left:rem-calc(24);
+                            transform: translate3d(0,-50%,0);
                         }
                         #wrap{
                             flex-direction: column-reverse;
@@ -139,8 +141,8 @@
                     }
                     #itemWrap{
                         .tag{
-                            top:rem-calc(270);
-                            left:rem-calc(-10);
+                            top:rem-calc(250);
+                            left:rem-calc(-35);
                         }
                         #wrap{
                             #imgWrap{
@@ -158,8 +160,8 @@
                     }
                     #itemWrap{
                         .tag{
-                            top:rem-calc(70);
-                            left:rem-calc(-10);
+                            top:rem-calc(50);
+                            left:rem-calc(-40);
                         }
                         #wrap{
                             #imgWrap{
@@ -198,7 +200,7 @@
                     #itemWrap{
                         .tag{
                             top:rem-calc(120);
-                            left:rem-calc(70);
+                            left:rem-calc(24);
                         }
                         #wrap{
                             flex-direction: column-reverse;
@@ -240,8 +242,8 @@
                     }
                     #itemWrap{
                         .tag{
-                            top:rem-calc(-10);
-                            right:rem-calc(50);
+                            top:rem-calc(-25);
+                            right:rem-calc(10);
                         }
                         #wrap{
                             flex-direction: column-reverse;
@@ -255,7 +257,7 @@
                             }
                         }
                         #des{
-                            height: rem-calc(70);
+                            height: rem-calc(74);
                         }
                     }
                 }

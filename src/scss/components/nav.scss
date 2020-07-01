@@ -2,6 +2,14 @@
     position: fixed;
     top:0;
     left:0;
+    &.projects-post{
+        #logo{
+            span{
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
     #logo{
         position: absolute;
         top:rem-calc(50);

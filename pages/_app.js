@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { SmoothScroll, usePrevious, adjustFontSize } from '../src/globalFunc'
 import { wrapper } from '../src/store'
 import { useRouter } from 'next/router'
-import gsap from 'gsap';
+import Head from 'next/head'
 
 // Components
 import Nav from '../src/components/Nav'
@@ -20,9 +20,10 @@ const MyApp = ({ Component, pageProps }) => {
     const language = useSelector(state => state.language);
     const currentpage = useSelector(state => state.page);
     const route = useRouter();
-    const {pathname, basePath} = route;
+    const {asPath, pathname, basePath} = route;
 
     const logonameElem = useRef(null);
+    const featuredImageElem = useRef(null);
     const footerElem = useRef(null);
     const smooth = useRef(null);
     const scrollWrap = useRef(null);
@@ -33,8 +34,14 @@ const MyApp = ({ Component, pageProps }) => {
         if('/'+urlArray[0] === basePath){
             urlArray.splice(0,1);
         }
-        const isMatch = urlArray[1];
-        setPage(isMatch ? urlArray[1] + (urlArray[2] ? 'detail' : '') : 'home');
+        const isSection = urlArray[2] ? urlArray[2].match(/section/g) : false;
+        let isPost;
+
+        isSection ? 
+            isPost = urlArray[3] ? urlArray[3].match(/post/g) : false
+        :
+            isPost = urlArray[2] ? urlArray[2].match(/post/g) : false
+        setPage(isPost ? urlArray[1]+'-post' : urlArray[1] ? urlArray[1] : 'home');
     },[pathname])
     
     useEffect(()=>{
@@ -57,7 +64,9 @@ const MyApp = ({ Component, pageProps }) => {
     useEffect(()=>{
         smooth.current = new SmoothScroll(scrollWrap.current,(s, y, h) => {
             logonameElem.current.style.transform = `translate3d(0,${y}px,0)`;
-            
+            if(featuredImageElem.current)
+                featuredImageElem.current.style.transform = `translate3d(0,${-y*.5}px,0)`;
+
             if(!footerElem.current.className){
                 if(footerElem.current.getBoundingClientRect().top - window.innerHeight < -footerElem.current.offsetHeight/2){
                     footerElem.current.className = 'active';
@@ -70,16 +79,33 @@ const MyApp = ({ Component, pageProps }) => {
         }
     },[])
 
+    const getTitle = () => {
+        const title = asPath.replace(basePath, '').split('/');
+        title.splice(0,2);
+
+        for(let i=0; i<title.length; i++){
+            title[i] = decodeURIComponent(title[i].charAt(0).toUpperCase() + title[i].slice(1));
+        }
+
+        return title.length ? title.reverse().join(' | ') : 'Barwo';
+    }
+
     return (
-        <div id="bodyWrap" className={language}>
-            <div id="mainWrap">
-                <div ref={scrollWrap} id="scrollWrap">
-                    <Component {...pageProps} />
-                    {currentpage !== 'contact' && <Footer footerElem={footerElem} /> }
+        <>
+            <Head>
+                <title>{getTitle()}</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
+            <div id="bodyWrap" className={language}>
+                <div id="mainWrap">
+                    <div ref={scrollWrap} id="scrollWrap">
+                        <Component {...pageProps} featuredImageElem={featuredImageElem} />
+                        {currentpage !== 'contact' && <Footer footerElem={footerElem} /> }
+                    </div>
                 </div>
+                <Nav logonameElem={logonameElem}/>
             </div>
-            <Nav logonameElem={logonameElem}/>
-        </div>
+        </>
     )
 }
 
