@@ -61,9 +61,9 @@ const Projects = () => {
     },[]);
 
     useEffect(()=>{
-        if(iso.current) {
+        if(iso.current && data.length > 8){
             iso.current.reloadItems();
-            iso.current.arrange({stamp:'.space'});
+            iso.current.arrange();
         }
     },[data])
 

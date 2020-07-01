@@ -57,9 +57,9 @@ const MyApp = ({ Component, pageProps }) => {
     useEffect(()=>{
         smooth.current = new SmoothScroll(scrollWrap.current,(s, y, h) => {
             logonameElem.current.style.transform = `translate3d(0,${y}px,0)`;
-
+            
             if(!footerElem.current.className){
-                if(footerElem.current.getBoundingClientRect().top - window.innerHeight < 0){
+                if(footerElem.current.getBoundingClientRect().top - window.innerHeight < -footerElem.current.offsetHeight/2){
                     footerElem.current.className = 'active';
                 }
             }
