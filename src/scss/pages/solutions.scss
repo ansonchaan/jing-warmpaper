@@ -98,11 +98,11 @@
         #listWrap{
             padding-top:rem-calc(75);
             padding-bottom:rem-calc(83);
-            ul{
+            &>ul{
                 display: grid;
                 grid-template-columns: 24.5vw 24.5vw auto;
                 grid-auto-rows: rem-calc(643) 24.5vw 24.5vw;
-                li{
+                &>li{
                     position: relative;
                     &:nth-child(1){
                         a{
@@ -176,6 +176,9 @@
                         z-index: 2;
                         a{
                             color:$white;
+                            h6{
+                                color:#888B57;
+                            }
                             #front{
                                 &:after{
                                     content:'';
@@ -200,7 +203,6 @@
                                     h6{
                                         width:90%;
                                         margin-right:0;
-                                        color:#888B57;
                                     }
                                 }
                             }
@@ -212,6 +214,9 @@
                         grid-row-end: 4; 
                         a{
                             color:#220440;
+                            h6{
+                                color:#5B906D;
+                            }
                             #front{
                                 #icon{
                                     width:rem-calc(83);
@@ -252,10 +257,35 @@
                                     h6{
                                         width:calc(100% - #{rem-calc(45+45)});
                                         margin:0;
-                                        color:#5B906D;
                                         position: absolute;
                                         bottom:rem-calc(30);
                                     }
+                                }
+                            }
+                            #back{
+                                width:100%;
+                                height:100%;
+                                position: absolute;
+                                top:0;
+                                left:0;
+                                padding:rem-calc(50);
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: all .3s cubic-bezier(0.33, 1, 0.68, 1);
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                &:after{
+                                    content:'';
+                                    width:rem-calc(160);
+                                    height:rem-calc(160);
+                                    background:url($basePath+'/images/smile.png') center no-repeat;
+                                    background-size:100%;
+                                    position: absolute;
+                                    top:25%;
+                                    right:5%;
+                                    mix-blend-mode: color-burn;
+                                    transform: translate3d(0,0,0) rotate(-4deg);
                                 }
                             }
                         }
@@ -264,15 +294,37 @@
                         grid-column-start: 1; 
                         grid-column-end: 3;
                     }
+                    &:hover{
+                        a{
+                            box-shadow:rem-calc(10 10 30) #00000029;
+                            z-index: 3;
+                            transform: translate3d(0,0,0) scale(1.05) rotate(4deg);
+                        }
+                        &.hasBack{
+                            #front{
+                                opacity: 0;
+                                visibility: hidden;
+                            }
+                            #back{
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
                     a{
                         width:100%;
                         height:100%;
+                        position: relative;
+                        background-size:cover;
+                        transition: all .6s cubic-bezier(0.33, 1, 0.68, 1);
                         #front{
                             width:100%;
                             height:100%;
                             padding:rem-calc(30 45 30);
                             position: relative;
-                            background-size:cover;
+                            opacity: 1;
+                            visibility: visible;
+                            transition: all .3s cubic-bezier(0.33, 1, 0.68, 1);
                             #wrap{
                                 width: 100%;
                                 svg{
@@ -293,6 +345,30 @@
                                     width:80%;
                                     margin-top:rem-calc(20);
                                 }
+                            }
+                        }
+                    }
+                    #numoflist{
+                        counter-reset:num;
+                        color:$black;
+                        li{
+                            display: flex;
+                            align-items: center;
+                            margin-top:rem-calc(25);
+                            &:first-child{
+                                margin:0;
+                            }
+                            &:before{
+                                counter-increment: num;
+                                content:counter(num);
+                                width:rem-calc(38);
+                                height:rem-calc(38);
+                                border-radius: 50%;
+                                border:rem-calc(3) solid $black;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-right:rem-calc(15);
                             }
                         }
                     }

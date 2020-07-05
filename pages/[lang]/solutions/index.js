@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { wrapper } from '../../../src/store'
 import { useRouter } from 'next/router'
@@ -6,12 +6,19 @@ import Link from 'next/link'
 
 const Solutions = () => {
     const language = useSelector(state => state.language);
+    // const [z, setZ] = useState(0);
     // const dispatch = useDispatch();
     const route = useRouter();
     const { basePath } = route;
   
     useEffect(()=>{
     },[]);
+
+    const onHover = (e) => {
+        e.currentTarget.style.zIndex = z++;
+    }
+
+    let z = 10;
 
     return (
         <div id="solutions">
@@ -26,10 +33,10 @@ const Solutions = () => {
             <div id="outerWrap">
                 <div id="listWrap" className="center">
                     <ul>
-                        <li>
+                        <li onMouseEnter={(e)=>onHover(e)}>
                             <Link href="/[lang]/solutions/[post]" as={`/${language}/solutions/test`}>
-                                <a>
-                                    <div id="front" style={{backgroundImage:`url(${basePath}/images/solutionsimg1.jpg)`}}>
+                                <a style={{backgroundImage:`url(${basePath}/images/solutionsimg1.jpg)`}}>
+                                    <div id="front">
                                         <div id="wrap">
                                             <h1 className="b">Management & <br/>Communication</h1>
                                             <h6>Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.</h6>
@@ -46,10 +53,10 @@ const Solutions = () => {
                                 </a>
                             </Link>
                         </li>
-                        <li>
+                        <li onMouseEnter={(e)=>onHover(e)}>
                             <Link href="/[lang]/solutions/[post]" as={`/${language}/solutions/test`}>
-                                <a>
-                                    <div id="front" style={{backgroundImage:`url(${basePath}/images/solutionsimg2.jpg)`}}>
+                                <a style={{backgroundImage:`url(${basePath}/images/solutionsimg2.jpg)`}}>
+                                    <div id="front">
                                         <div id="wrap">
                                             <h6>Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.</h6>
                                             <h2 className="b">WEB Design</h2>
@@ -65,11 +72,11 @@ const Solutions = () => {
                                 </a>
                             </Link>
                         </li>
-                        <li><a><div id="front" style={{backgroundImage:`url(${basePath}/images/solutionsimg3.jpg)`}}></div></a></li>
-                        <li>
+                        <li onMouseEnter={(e)=>onHover(e)}><a style={{backgroundImage:`url(${basePath}/images/solutionsimg3.jpg)`}}><div id="front"></div></a></li>
+                        <li onMouseEnter={(e)=>onHover(e)}>
                             <Link href="/[lang]/solutions/[post]" as={`/${language}/solutions/test`}>
-                                <a>
-                                    <div id="front" style={{backgroundColor:'#dcddcd'}}>
+                                <a style={{backgroundColor:'#dcddcd'}}>
+                                    <div id="front">
                                         <div id="wrap">
                                             <h2 className="b">Business Analytic</h2>
                                             <h6>Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.</h6>
@@ -85,10 +92,10 @@ const Solutions = () => {
                                 </a>
                             </Link>
                         </li>
-                        <li>
+                        <li className="hasBack" onMouseEnter={(e)=>onHover(e)}>
                             <Link href="/[lang]/solutions/[post]" as={`/${language}/solutions/test`}>
-                                <a>
-                                    <div id="front" style={{backgroundColor:'#eff0ea'}}>
+                                <a style={{backgroundColor:'#eff0ea'}}>
+                                    <div id="front">
                                         <div id="icon"></div>
                                         <div id="wrap">
                                             <div id="title">
@@ -104,10 +111,19 @@ const Solutions = () => {
                                             <h6>Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.</h6>
                                         </div>
                                     </div>
+                                    <div id="back">
+                                        <h2 className="b cap">Consultant & User Experiences</h2>
+                                        <ul id="numoflist" className="h4 b">
+                                            <li>Ready to use</li>
+                                            <li>Easy to adopt</li>
+                                            <li>Data analysis</li>
+                                        </ul>
+                                        <h6>Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.Our capabilities are defined by our imagination and refined by our experience. Built on strategy, driven by data.</h6>
+                                    </div>
                                 </a>
                             </Link>
                         </li>
-                        <li>
+                        <li onMouseEnter={(e)=>onHover(e)}>
                             <a>
                                 <div id="front" style={{backgroundImage:`url(${basePath}/images/solutionsimg4.jpg)`}}></div>
                             </a>
@@ -123,10 +139,12 @@ const Solutions = () => {
                             <li><img src={`${basePath}/images/icons/littler.png`} /></li>
                             <li><img src={`${basePath}/images/icons/nespresso.png`} /></li>
 
+                            {/* main */}
                             <li><img src={`${basePath}/images/icons/starbucks.png`} /></li>
                             <li><img src={`${basePath}/images/icons/sidley.png`} /></li>
                             <li><img src={`${basePath}/images/icons/littler.png`} /></li>
                             <li><img src={`${basePath}/images/icons/nespresso.png`} /></li>
+                            {/* main */}
 
                             <li><img src={`${basePath}/images/icons/starbucks.png`} /></li>
                             <li><img src={`${basePath}/images/icons/sidley.png`} /></li>
