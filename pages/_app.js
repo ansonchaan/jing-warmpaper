@@ -4,6 +4,7 @@ import { SmoothScroll, usePrevious, adjustFontSize } from '../src/globalFunc'
 import { wrapper } from '../src/store'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import {Noise} from '../src/js/noise'
 
 // Components
 import Nav from '../src/components/Nav'
@@ -27,6 +28,7 @@ const MyApp = ({ Component, pageProps }) => {
     const footerElem = useRef(null);
     const smooth = useRef(null);
     const scrollWrap = useRef(null);
+    const canvasElem = useRef(null);
 
     useEffect(()=>{
         const urlArray = pathname.split('/');
@@ -53,9 +55,13 @@ const MyApp = ({ Component, pageProps }) => {
     },[page])
 
     useEffect(()=>{
+        const noise = new Noise(canvasElem.current);
+        noise.init();
+
         adjustFontSize();
         window.addEventListener('resize', ()=>adjustFontSize());
         return () => {
+            noise.destroy();
             window.removeEventListener('resize', ()=>adjustFontSize());
         }
     },[])
@@ -80,7 +86,7 @@ const MyApp = ({ Component, pageProps }) => {
     },[])
 
     const getTitle = () => {
-        const title = asPath.replace(basePath, '').split('/');
+        const title = asPath.replace(basePath, '').replace(/\?.+/g,'').split('/');
         title.splice(0,2);
 
         for(let i=0; i<title.length; i++){
@@ -104,6 +110,7 @@ const MyApp = ({ Component, pageProps }) => {
                     </div>
                 </div>
                 <Nav logonameElem={logonameElem}/>
+                <canvas ref={canvasElem}></canvas>
             </div>
         </>
     )

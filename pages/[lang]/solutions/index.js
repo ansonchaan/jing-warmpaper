@@ -124,8 +124,8 @@ const Solutions = () => {
                             </Link>
                         </li>
                         <li onMouseEnter={(e)=>onHover(e)}>
-                            <a>
-                                <div id="front" style={{backgroundImage:`url(${basePath}/images/solutionsimg4.jpg)`}}></div>
+                            <a style={{backgroundImage:`url(${basePath}/images/solutionsimg4.jpg)`}}>
+                                <div id="front"></div>
                             </a>
                         </li>
                     </ul>

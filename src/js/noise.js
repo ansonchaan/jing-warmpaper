@@ -1,6 +1,6 @@
-export const noise = function(){
+export const Noise = function(elem){
     this.init = function() {
-        this.canvas = this.$refs.noise,
+        this.canvas = elem,
         this.ctx = this.canvas.getContext("2d"),
         this.noiseData = [],
         this.frame = 0,
@@ -8,7 +8,7 @@ export const noise = function(){
         this.resizeThrottle = null,
         this.setup()
     },
-    this.setup = function() {
+    this.setup = function() {console.log(123)
         this.noiseData = [],
         this.canvas.width = window.innerWidth,
         this.canvas.height = window.innerHeight;
