@@ -8,7 +8,7 @@ export const Noise = function(elem){
         this.resizeThrottle = null,
         this.setup()
     },
-    this.setup = function() {console.log(123)
+    this.setup = function() {
         this.noiseData = [],
         this.canvas.width = window.innerWidth,
         this.canvas.height = window.innerHeight;
@@ -34,8 +34,8 @@ export const Noise = function(elem){
         }, 120)
     },
     this.destroy = function() {
-        this.reset(),
-        this.loopTimeout = 0,
-        document.removeChild(this.$el)
+        // this.reset(),
+        this.loopTimeout = 0;
+        // document.removeChild(this.$el)
     }
 }

@@ -50,6 +50,15 @@
         }
       }
     }
+    .flickity-enabled{
+      outline: none;
+    }
+    .flickity-viewport,
+    .flickity-slider{
+      width:100%;
+      height:100% !important;
+      outline: none;
+    }
   
     a{
       text-decoration: none;
@@ -375,7 +384,7 @@
     .corner{
       position: relative;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
-      transition: clip-path 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+      transition: clip-path 0.5s cubic-bezier(0.65, 0, 0.35, 1), transform .6s cubic-bezier(0.33, 1, 0.68, 1);
       &:hover{
           clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{rem-calc(40)}),calc(100% - #{rem-calc(40)}) 100%, 0 100%);
           &:before{

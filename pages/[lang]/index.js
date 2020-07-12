@@ -1,16 +1,47 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { wrapper } from '../../src/store'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import { route } from 'next/dist/next-server/server/router';
+import gsap from 'gsap';
+
+const Flickity = (typeof window !== 'undefined') ? require('flickity') : null
 
 const Home = () => {
   const language = useSelector(state => state.language);
   // const dispatch = useDispatch();
-    const {basePath} = useRouter();
+  const {basePath} = useRouter();
+
+  const gallery = useRef(null);
   
   useEffect(()=>{
+    let flkty = new Flickity( gallery.current, {cellAlign:'left', pageDots: false});
+    flkty.reposition();
+
+    const lth = flkty.slides.length;
+    flkty.on( 'scroll', function( progress ) {
+      const idx = Math.max(0, Math.ceil(progress / (lth/2-1)) -1);
+      for(let i=0; i<lth; i++){
+        if(idx === i){
+          const elem = flkty.slides[i].cells[0].element;
+          const x = (idx-(progress / (lth/2-1))) * (lth*100);
+          elem.style.transform = `translate3d(${x}%,0,0)`;
+        }
+      }
+      console.log(progress, idx);
+    });
+
+    for(let i=0; i<lth; i++){
+      const elem = flkty.slides[i].cells[0].element;
+      elem.style.zIndex = lth-i;
+      gsap.set(elem.querySelector('#imgWrap'),{rotate: Math.random() * 20 - 10 });
+    }
+
+    return () => {
+      flkty.destroy();
+      flkty = null;
+    }
   },[]);
 
   return (
@@ -37,15 +68,39 @@ const Home = () => {
             <Link href="/[lang]/projects" as={`/${language}/projects`}><a className="h5"><u>View all projects ></u></a></Link>
           </div>
           <div id="right">
-            <div id="imgWrap">
-              <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
-                <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
-                </a>
-              </Link>
-              <span className="tag7 h3 b">Websites</span>
+            <ul ref={gallery} id="gallery">
+              <li>
+                <div id="imgWrap">
+                  <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
+                    </a>
+                  </Link>
+                  {/* <span className="tag7 h3 b">Websites</span> */}
+                </div>
+                {/* <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link> */}
+              </li>
+              <li>
+                <div id="imgWrap">
+                  <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
+                    </a>
+                  </Link>
+                  {/* <span className="tag7 h3 b">Websites</span> */}
+                </div>
+                {/* <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link> */}
+              </li>
+              <li>
+                <div id="imgWrap">
+                  <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
+                    </a>
+                  </Link>
+                  {/* <span className="tag7 h3 b">Websites</span> */}
+                </div>
+                {/* <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link> */}
+              </li>
+            </ul>
             </div>
-            <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link>
-          </div>
         </div>
       </div>
       <div id="h_solutions">

@@ -10,6 +10,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
+    "flickity": "^2.2.1",
     "gsap": "^3.3.1",
     "isotope-layout": "^3.0.6",
     "next": "9.4.4",
