@@ -387,9 +387,8 @@
                 width:100%;
                 display: flex;
                 ul{
-                    // white-space: nowrap;
                     display: flex;
-                    animation: marquee 5s linear infinite running;
+                    animation: marquee 10s linear infinite running;
                     li{
                         width:13vw;
                         height:10vw;

@@ -73,11 +73,12 @@ const MyApp = ({ Component, pageProps }) => {
             if(featuredImageElem.current)
                 featuredImageElem.current.style.transform = `translate3d(0,${-y*.5}px,0)`;
 
-            if(!footerElem.current.className){
-                if(footerElem.current.getBoundingClientRect().top - window.innerHeight < -footerElem.current.offsetHeight/2){
-                    footerElem.current.className = 'active';
+            if(footerElem.current)
+                if(!footerElem.current.className){
+                    if(footerElem.current.getBoundingClientRect().top - window.innerHeight < -footerElem.current.offsetHeight/2){
+                        footerElem.current.className = 'active';
+                    }
                 }
-            }
         });
         return () => { 
             smooth.current.off();

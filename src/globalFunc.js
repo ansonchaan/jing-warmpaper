@@ -455,7 +455,7 @@ export const SmoothScroll = function(elem, scrollFunc) {
   var showScrollBar = false;
 
   var disable = false;
-  var isSelf = false;
+  var isSelf = true;
 
   var onScroll = function(e) {
     if (!disable && isSelf) {

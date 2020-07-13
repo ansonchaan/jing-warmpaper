@@ -20,7 +20,7 @@ const About = () => {
                         <svg width="100%" height="100%" viewBox="0 0 1366 253" preserveAspectRatio="xMaxYMid slice">
                             <defs>
                                 <clipPath id="myClip">
-                                    <text transform="matrix(1 0 0 1 667.2373 202.7109)" fontFamily="Okta Neue" fontSize="215px">WARM</text>
+                                    <text transform="matrix(1 0 0 1 667.2373 202.7109)" fontSize="215px">WARM</text>
                                 </clipPath>
                                 <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
                                     <feGaussianBlur in="SourceGraphic" stdDeviation="30" />

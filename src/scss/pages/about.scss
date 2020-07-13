@@ -33,9 +33,9 @@
             svg{
                 circle{
                     fill:$orange;
-                    animation: move1 20s infinite;
+                    animation: move4 20s infinite;
                     &+circle{
-                        animation: move2 20s infinite;
+                        animation: move4 20s infinite reverse;
                     }
                 }
             }
@@ -283,5 +283,26 @@
                 transform: translate3d(-50%,0,0);
             }
         }
+    }
+}
+
+@keyframes move4{
+    0%{
+        transform: translate3d(0,0,0);
+    }
+    20%{
+        transform: translate3d(5vw,10vw,0);
+    }
+    40%{
+        transform: translate3d(0vw,-5vw,0);
+    }
+    60%{
+        transform: translate3d(-5vw,5vw,0);
+    }
+    80%{
+        transform: translate3d(0vw,-10vw,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
     }
 }

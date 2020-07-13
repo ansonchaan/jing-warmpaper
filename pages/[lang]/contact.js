@@ -14,8 +14,8 @@ const Contact = () => {
     useEffect(()=>{
     },[]);
 
-    const onOpenForm = () => {
-        setOpenform(!openform);
+    const onOpenForm = (bool = undefined) => {
+        setOpenform(bool ? bool : !openform);
     }
 
     // const getEmail = (e) => {
@@ -39,10 +39,10 @@ const Contact = () => {
                     </div>
                 </div>
                 <div id="form"className={openform ? 'open' : ''}>
-                    <div id="btn" className={openform ? 'close' : ''} onClick={onOpenForm}>
+                    <div id="btn" className={openform ? 'close' : ''} onClick={()=>onOpenForm()}>
                         <span></span><span></span>
                     </div>
-                    <div id="title" className="b">Fill in the form<br/> below</div>
+                    <div id="title" className="b" onClick={()=>onOpenForm(true)}>Fill in the form<br/> below</div>
                     <h6 id="remark">Please write down your <br/>enquiry and we will read it.</h6>
                     <form action="mailto:info@warmpaper-design.com" method="POST" encType="text/plain" name="EmailTestForm">
                         <div><input type="text" name="Name" placeholder="Full Name" /></div>

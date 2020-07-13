@@ -174,9 +174,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        transform: translate3d(rem-calc(380),-125vh,0) rotate(5deg);
+        transform: translate3d(rem-calc(380),-130vh,0) rotate(5deg);
         transform-origin: left bottom;
         transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+        overflow: hidden;
         &.active{
             // transition-delay: .6s;
             transform: translate3d(rem-calc(280),rem-calc(-50),0) rotate(-14deg);
