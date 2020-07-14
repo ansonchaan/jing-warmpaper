@@ -353,8 +353,8 @@
     #h_about{
         width:100%;
         height:rem-calc(553);
-        background:url($basePath+'/images/orange_paper_cover.png') no-repeat;
-        background-size:100%;
+        background:url($basePath+'/images/orange_paper_cover.png') center no-repeat;
+        background-size:cover;
         color:$white;
         position: relative;
         display: flex;
