@@ -19,8 +19,8 @@ export const adjustFontSize = (baseFontRatio = 14 / 1024, fontMultiplier = 0.843
     baseFontRatio * width * fontMultiplier
   );
 
-  // if (roundedNumber >= 16)
-  if(!isMobile())
+  if (roundedNumber >= 16)
+  // if(!isMobile())
       document.documentElement.style.fontSize = roundedNumber + "px";
   else 
       document.documentElement.style.fontSize = "";

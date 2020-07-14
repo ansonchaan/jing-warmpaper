@@ -6,6 +6,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = withCSS(withSass({
     distDir: 'build',
+    assetPrefix: isProd ? '/warmpaper' : null,
     exportTrailingSlash: isProd ? true : false,
     experimental: {
         basePath: isProd ? '/warmpaper' : null
