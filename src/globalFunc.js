@@ -13,16 +13,15 @@ export const print = (state, color, text) =>{
 //
 // enlarge font size on large screen
 //
-export const adjustFontSize = (baseFontRatio = 14 / 1024, fontMultiplier = 0.84375) => {
+export const adjustFontSize = (baseFontRatio = 16 / 1440, fontMultiplier = 0.84375) => {
   const width = window.innerWidth;
   const roundedNumber = Math.round(
     baseFontRatio * width * fontMultiplier
   );
 
-  if (roundedNumber >= 16)
-  // if(!isMobile())
+  if (roundedNumber >= 16){
       document.documentElement.style.fontSize = roundedNumber + "px";
-  else 
+ } else 
       document.documentElement.style.fontSize = "";
 };
 
