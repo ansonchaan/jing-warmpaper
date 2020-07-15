@@ -29,7 +29,6 @@ const Home = () => {
           elem.style.transform = `translate3d(${x}%,0,0)`;
         }
       }
-      console.log(progress, idx);
     });
 
     for(let i=0; i<lth; i++){

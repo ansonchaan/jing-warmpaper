@@ -79,9 +79,9 @@ const Nav = (props) => {
             <div id="menu" className={`${activeMenu ? 'active' : ''} big b`}>
                 {
                     pages.map((v,i)=>{
-                        return <Link key={i} href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}>
+                        return <div key={i}><Link href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}>
                             <a className={page === v[0] ? 'active' : ''} onClick={onClickMenuItem}><span id="text">{v[1]}<span id="brush"></span></span></a>
-                        </Link>
+                        </Link></div>
                     })
                 }
             </div>
