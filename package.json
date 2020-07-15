@@ -11,6 +11,8 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
+    "emotion": "^10.0.27",
+    "emotion-server": "^10.0.27",
     "flickity": "^2.2.1",
     "gsap": "^3.3.1",
     "isotope-layout": "^3.0.6",
@@ -22,6 +24,8 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.1.1",
+    "styled-jsx-plugin-sass": "^1.0.0"
   }
 }

@@ -123,6 +123,13 @@ const Home = () => {
         <h2 className="b">About<br/>Warmpaper</h2>
         <h4>One of the first things you should know about us is that we don’t do everything. But what we do, we do well.One of the first things you should know about us is that we don’t do everything. But what we do, we do well.</h4>
       </div>
+      
+      <style jsx>{`
+        .bigTitle {
+            font-size: 4.375rem;
+            line-height: 5rem;
+        }
+      `}</style>
     </div>
   )
 }

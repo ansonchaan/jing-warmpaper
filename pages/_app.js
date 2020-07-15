@@ -113,6 +113,13 @@ const MyApp = ({ Component, pageProps }) => {
                 <Nav logonameElem={logonameElem}/>
                 <canvas ref={canvasElem}></canvas>
             </div>
+            <style jsx>{`
+                #bodyWrap{
+                    font-family:'Okta Neue', sans-serif;
+                    font-size: 1.25rem;
+                    line-height: 1.875rem;
+                }
+            `}</style>
         </>
     )
 }

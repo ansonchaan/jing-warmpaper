@@ -85,6 +85,12 @@ const Nav = (props) => {
                     })
                 }
             </div>
+            
+            <style jsx>{`
+                #menu {
+                    transform: translate3d(23.75rem, -130vh, 0) rotate(5deg);
+                }
+            `}</style>
         </div>
     )
 }
