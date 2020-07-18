@@ -8,7 +8,7 @@ import gsap from 'gsap';
 
 const Flickity = (typeof window !== 'undefined') ? require('flickity') : null
 
-const Home = () => {
+const Home = props => {
   const language = useSelector(state => state.language);
   // const dispatch = useDispatch();
   const {basePath} = useRouter();
@@ -42,6 +42,8 @@ const Home = () => {
       flkty = null;
     }
   },[]);
+
+  const data = props.data;
 
   return (
     <div id="home">

@@ -62,24 +62,4 @@ const Post = props => {
     )
 }
 
-// export const getStaticProps = wrapper.getStaticProps( async ({ store, params }) => {
-//     store.dispatch({type:'UPDATE_LANGUAGE', language: params.lang})
-//     store.dispatch({type:'UPDATE_PAGE', page:'projects-post'})
-// })
-  
-// export const getStaticPaths = async () => {
-//     const lang = ['en'];
-//     const posts = ['test'];
-//     const paths = [];
-
-//     Object.entries(lang).forEach(([lkey, l]) => {
-//         Object.entries(posts).forEach(([pkey, p]) => {
-//             const key = parseInt(lkey*posts.length,10) + parseInt(pkey,10);
-//             paths[key] = {params: { lang:l, post: p }}
-//         })
-//     })
-  
-//     return{ paths, fallback: false }
-// }
-
 export default Post;
