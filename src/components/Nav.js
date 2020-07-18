@@ -22,11 +22,11 @@ const Nav = (props) => {
             for(let i=0; i<menuText.length; i++){
                 const text = menuText[i];
                 const brush = menuBrush[i];
-                brush.style.backgroundSize = text.offsetWidth*1.09+'px';
+                brush.style.backgroundSize = text.offsetWidth*1.1+'px';
             }
         }
 
-        setTimeout(()=>{updateBrush()},300);
+        setTimeout(()=>{updateBrush()},1000);
         window.addEventListener('resize', updateBrush, false);
         return()=>{
             window.removeEventListener('resize', updateBrush, false);
