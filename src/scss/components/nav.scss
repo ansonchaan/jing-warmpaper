@@ -33,11 +33,11 @@
         }
     }
     #menuBtn{
-        width:rem-calc(59 - 2);
-        height:rem-calc(72 - 2);
+        width:rem-calc(50 - 2);
+        height:rem-calc((50 * 1.22) - 2);
         position: fixed;
-        top:rem-calc(66);
-        right:rem-calc(106);
+        top:rem-calc(45);
+        right:rem-calc(103);
         z-index: 999;
         &>div{
             width:100%;
@@ -57,13 +57,13 @@
             &:hover{
                 &>span{
                     &:nth-child(1){
-                        transform: translate3d(rem-calc(-17), rem-calc(-30), rem-calc(12));
+                        transform: translate3d(rem-calc(-17), rem-calc(-30), rem-calc(9));
                     }
                     &:nth-child(2){
-                        transform: translate3d(rem-calc(-14/2), rem-calc(-26/2), rem-calc(11));
+                        transform: translate3d(rem-calc(-14/2), rem-calc(-26/2), rem-calc(7));
                     }
                     &:nth-child(3){
-                        transform: translate3d(0,0,rem-calc(8));
+                        transform: translate3d(0,0,rem-calc(4));
                     }
                 }
             }
@@ -72,11 +72,11 @@
                 height:100%;
                 &:nth-child(1){
                     z-index: 3;
-                    transform: translate3d(rem-calc(-17), rem-calc(-30), rem-calc(20));
+                    transform: translate3d(rem-calc(-17), rem-calc(-30), rem-calc(12));
                 }
                 &:nth-child(2){
                     z-index: 2;
-                    transform: translate3d(rem-calc(-14/2), rem-calc(-26/2), rem-calc(11));
+                    transform: translate3d(rem-calc(-14/2), rem-calc(-26/2), rem-calc(7));
                 }
                 &:nth-child(3){
                     z-index: 1;

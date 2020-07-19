@@ -3,9 +3,10 @@ import Link from 'next/link'
 
 const Footer = props => {
     const language = useSelector(state => state.language);
+    const page = useSelector(state => state.page);
 
     return (
-        <div ref={props.footerElem} id="footer">
+        <div ref={props.footerElem} id="footer" data-page={page}>
             <div id="wrap" className="center">
                 <Link href="/[lang]" as={`/${language}`}><a id="logo"></a></Link>
                 <h2 className="b">We do digital like<br/> its our business.</h2>

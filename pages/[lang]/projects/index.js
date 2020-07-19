@@ -169,7 +169,7 @@ const Projects = () => {
                                                     <div id="imgWrap"><div id="img" style={{backgroundImage:`url(${basePath}/images/project1.png)`}}></div></div>
                                                     <div id="name" className="h4" dangerouslySetInnerHTML={{__html:v.name}}></div>
                                                 </div>
-                                                <div id="des" className="small">Paper is a thin sheet material produced by mechanically and/or chemically processing cellulose fibres derived from wood, rags, grasses or other vegetable sources in water, draining the water through fine mesh leaving the fibre evenly distributed on the surface, followed by pressing and drying.</div>
+                                                <div id={v.category === 'system' || v.category === 'ui' || v.category === 'cultural2' ? 'des_s' : 'des'} className="small"></div>
                                             </div>
                                         </a>
                                     </Link>

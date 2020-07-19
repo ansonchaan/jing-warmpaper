@@ -12,7 +12,7 @@ const Nav = (props) => {
     // const dispatch = useDispatch();
     // const route = useRouter();
 
-    const pages = [['projects','Projects'],['solutions','Solutions'],['about','About'],['contact','Contact']];
+    const pages = [['','Home'],['projects','Projects'],['solutions','Solutions'],['about','About'],['contact','Contact']];
 
     useEffect(()=>{
         const menuText = document.querySelectorAll('#menu #text');
@@ -79,7 +79,7 @@ const Nav = (props) => {
             <div id="menu" className={`${activeMenu ? 'active' : ''} big b`}>
                 {
                     pages.map((v,i)=>{
-                        return <div key={i}><Link href={`/[lang]/${v[0]}`} as={`/${language}/${v[0]}`}>
+                        return <div key={i}><Link href={`/[lang]${v[0] ? `/${v[0]}` : ''}`} as={`/${language}${v[0] ? `/${v[0]}` : ''}`}>
                             <a className={page === v[0] ? 'active' : ''} onClick={onClickMenuItem}><span id="text">{v[1]}<span id="brush"></span></span></a>
                         </Link></div>
                     })
