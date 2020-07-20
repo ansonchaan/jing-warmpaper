@@ -75,10 +75,11 @@
         background:$white;
         #left{
             width:rem-calc(158+345);
-            padding-right: rem-calc(158);
+            padding-right: rem-calc(108);
         }
         #right{
             flex:1;
+            color:#515F7A;
         }
     }
     #believes{
@@ -221,35 +222,46 @@
     }
     #others{
         background:$white;
-        padding-top:rem-calc(229);
+        padding-top:rem-calc(200);
         padding-bottom:rem-calc(97);
         ul{
             position: relative;
             &:before{
                 content:'';
-                width:rem-calc(111);
-                height:rem-calc(116);
-                background:url($basePath+'/images/solutions1.png') no-repeat;
+                width:58vw;
+                height:50vw;
+                background:url($basePath+'/images/About_KV.png') no-repeat;
                 background-size:100%;
-                display: block;
                 position: absolute;
-                left:27%;
-                bottom:rem-calc(140);
-                transform: translate3d(-50%,0,0);
-                z-index: 4;
+                top:50%;
+                left:50%;
+                transform: translate3d(-50%,-50%,0);
             }
-            &:after{
-                content:'';
-                width:rem-calc(300);
-                height:rem-calc(370);
-                background:$lightyellow;
-                display: block;
-                position: absolute;
-                left:53%;
-                bottom:rem-calc(-5);
-                transform: translate3d(-50%,0,0) rotate(-10deg);
-                z-index: 1;
-            }
+            // &:before{
+            //     content:'';
+            //     width:rem-calc(111);
+            //     height:rem-calc(116);
+            //     background:url($basePath+'/images/solutions1.png') no-repeat;
+            //     background-size:100%;
+            //     display: block;
+            //     position: absolute;
+            //     left:27%;
+            //     bottom:rem-calc(140);
+            //     transform: translate3d(-50%,0,0);
+            //     z-index: 4;
+            // }
+            // &:after{
+            //     content:'';
+            //     width:rem-calc(300);
+            //     height:rem-calc(370);
+            //     background:$lightyellow;
+            //     display: block;
+            //     position: absolute;
+            //     left:53%;
+            //     bottom:rem-calc(-5);
+            //     transform: translate3d(-50%,0,0) rotate(-10deg);
+            //     z-index: 1;
+            // }
             li{
                 width:100%;
                 height:rem-calc(41);
@@ -259,30 +271,30 @@
                 }
             }
         }
-        .img{
-            position: absolute;
-            bottom:0;
-            &#img1{
-                width:rem-calc(464);
-                height:rem-calc(404);
-                background:url($basePath+'/images/about1.png') no-repeat;
-                background-size:100%;
-                left:58%;
-                bottom:rem-calc(-41);
-                z-index: 3;
-                transform: translate3d(-50%,0,0);
-            }
-            &#img2{
-                width:rem-calc(400);
-                height:rem-calc(408);
-                background:url($basePath+'/images/about2.png') no-repeat;
-                background-size:100%;
-                left:40%;
-                bottom:rem-calc(10);
-                z-index: 2;
-                transform: translate3d(-50%,0,0);
-            }
-        }
+        // .img{
+        //     position: absolute;
+        //     bottom:0;
+        //     &#img1{
+        //         width:rem-calc(464);
+        //         height:rem-calc(404);
+        //         background:url($basePath+'/images/about1.png') no-repeat;
+        //         background-size:100%;
+        //         left:58%;
+        //         bottom:rem-calc(-41);
+        //         z-index: 3;
+        //         transform: translate3d(-50%,0,0);
+        //     }
+        //     &#img2{
+        //         width:rem-calc(400);
+        //         height:rem-calc(408);
+        //         background:url($basePath+'/images/about2.png') no-repeat;
+        //         background-size:100%;
+        //         left:40%;
+        //         bottom:rem-calc(10);
+        //         z-index: 2;
+        //         transform: translate3d(-50%,0,0);
+        //     }
+        // }
     }
 }
 

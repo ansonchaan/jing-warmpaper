@@ -56,7 +56,7 @@ const About = () => {
                 </div>
             </div>
             <div id="description2" className="description center">
-                <div id="left" className="h2 b">We are Hong Kong based, We love our culture</div>
+                <div id="left" className="h3 b">We are Hong Kong based, We love our culture</div>
                 <div id="right" className="h4">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations.</div>
             </div>
             <div id="others">
@@ -65,8 +65,8 @@ const About = () => {
                     <li></li>
                     <li></li>
                     <li></li>
-                    <div id="img2" className="img"></div>
-                    <div id="img1" className="img"></div>
+                    {/* <div id="img2" className="img"></div>
+                    <div id="img1" className="img"></div> */}
                 </ul>
             </div>
         </div>
