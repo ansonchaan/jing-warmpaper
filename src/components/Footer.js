@@ -23,9 +23,9 @@ const Footer = props => {
                         </div>
                     </div>
                 </div>
-                <div id="fb"><a href="" target="_blank"></a></div>
-                <div id="ig"><a href="" target="_blank"></a></div>
             </div>
+            <div id="fb"><a href="" target="_blank"></a></div>
+            <div id="ig"><a href="" target="_blank"></a></div>
             <div id="bg"></div>
             <div id="bg2"></div>
         </div>

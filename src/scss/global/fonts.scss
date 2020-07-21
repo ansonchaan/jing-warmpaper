@@ -81,9 +81,29 @@ h6, .h6 {
 
 // tablet
 @media only screen and (max-width: $tablet) {
-  @include setFont(22, 34);
+  h5, .h5 {
+    @include setFont(25, 35);
+  }
 }
 
 // mobile
 @media only screen and (max-width: $mobile) {
+  .big{
+    @include setFont(60, 70);
+  }
+  .bigTitle{
+    @include setFont(60, 65);
+  }
+  h2, .h2 {
+    @include setFont(35, 40);
+  }
+  h3, .h3 {
+    @include setFont(20, 25);
+  }
+  h4, .h4 {
+    @include setFont(20, 30);
+  }
+  h5, .h5 {
+    @include setFont(20, 30);
+  }
 }

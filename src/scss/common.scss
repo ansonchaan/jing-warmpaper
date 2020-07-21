@@ -52,6 +52,21 @@
     }
     .flickity-enabled{
       outline: none;
+      .flickity-page-dots{
+        display: none;
+        text-align: center;
+        li{
+          width:rem-calc(10) !important;
+          height:rem-calc(10) !important;
+          margin:rem-calc(5);
+          border-radius: 50%;
+          background:#C4C4C4;
+          display: inline-block;
+          &.is-selected{
+            background:#7C7C7C;
+          }
+        }
+      }
     }
     .flickity-viewport,
     .flickity-slider{
@@ -413,9 +428,24 @@
   
   // tablet
   @media only screen and (max-width: 1024px) {
+    body{
+      overflow-x: hidden;
+      overflow-y: scroll;
+      .center {
+        padding: 0 rem-calc(60);
+      }
+    }
   }
+  @media only screen and (max-width: 768px) {
+  }
+
   // mobile
   @media only screen and (max-width: 700px) {
+    body{
+      .center {
+        padding: 0 rem-calc(28);
+      }
+    }
   }
   
   // iphone 6,7,8

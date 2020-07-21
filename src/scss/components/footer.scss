@@ -28,7 +28,7 @@
         z-index: 2;
         #logo{
             width:rem-calc(72);
-            height:rem-calc(79);
+            height:rem-calc(72 * 1.09);
             background:url($basePath+'/images/logo.svg') no-repeat;
             background-size:100%;
             margin-bottom:rem-calc(57);
@@ -70,43 +70,43 @@
                 }
             }
         }
-        #fb{
-            width: rem-calc(140);
-            height:rem-calc(313);
-            position: absolute;
-            bottom:rem-calc(20);
-            right:13.5%;
-            z-index: 2;
-            background:url($basePath+'/images/footer_facebook.png') no-repeat;
-            background-size:100%;
-            transition: transform .3s cubic-bezier(0.65, 0, 0.35, 1);
-            &:hover{
-                transform: translate3d(0,0,0) rotate(5deg);
-            }
-            a{
-                width:100%;
-                height:100%;
-            }
+    }
+    #fb{
+        width: rem-calc(140);
+        height:rem-calc(140 * 2.23);
+        position: absolute;
+        bottom:rem-calc(20);
+        right:13.5%;
+        z-index: 3;
+        background:url($basePath+'/images/footer_facebook.png') no-repeat;
+        background-size:100%;
+        transition: transform .3s cubic-bezier(0.65, 0, 0.35, 1);
+        &:hover{
+            transform: translate3d(0,0,0) rotate(5deg);
         }
-        #ig{
-            width: rem-calc(300);
-            height:rem-calc(390);
-            position: absolute;
-            top:rem-calc(20);
-            right:3%;
-            z-index: 1;
-            background:url($basePath+'/images/footer_instagram.png') no-repeat;
-            background-size:100%;
-            display: flex;
-            justify-content: flex-end;
-            transition: transform .3s cubic-bezier(0.65, 0, 0.35, 1);
-            &:hover{
-                transform: translate3d(0,0,0) rotate(5deg);
-            }
-            a{
-                width:50%;
-                height:100%;
-            }
+        a{
+            width:100%;
+            height:100%;
+        }
+    }
+    #ig{
+        width: rem-calc(300);
+        height:rem-calc(300 * 1.3);
+        position: absolute;
+        top:rem-calc(20);
+        right:3%;
+        z-index: 2;
+        background:url($basePath+'/images/footer_instagram.png') no-repeat;
+        background-size:100%;
+        display: flex;
+        justify-content: flex-end;
+        transition: transform .3s cubic-bezier(0.65, 0, 0.35, 1);
+        &:hover{
+            transform: translate3d(0,0,0) rotate(5deg);
+        }
+        a{
+            width:50%;
+            height:100%;
         }
     }
     #bg,
@@ -132,5 +132,116 @@
         transform: translate3d(0,-50%,0) rotate(-2deg);
         transform-origin: right;
         transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+}
+
+
+// tablet
+@media only screen and (max-width: 1024px) {
+    #footer{
+        #wrap{
+            padding-top:rem-calc(40);
+            padding-bottom:rem-calc(40);
+            #logo{
+                width:rem-calc(62);
+                height:rem-calc(62 * 1.09);
+                margin-bottom: rem-calc(40);
+                &:after{
+                    left:rem-calc(120);
+                }
+            }
+            #bottom{
+                margin-top:rem-calc(60);
+            }
+            #fb{
+                width: rem-calc(100);
+                height:rem-calc(100 * 2.23);
+                bottom:rem-calc(50);
+            }
+            #ig{
+                width: rem-calc(200);
+                height:rem-calc(200 * 1.3);
+                top:rem-calc(50);
+            }
+        }
+        #bg2{
+            transform: translate3d(25%, 5%, 0) rotate(35deg);
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #footer{
+        padding-bottom: rem-calc(250);
+        &:before{
+            width:60%;
+            height: 50%;
+            bottom:0;
+            top:auto;
+            left:rem-calc(28);
+            background-position: bottom;
+        }
+        &.active{
+            #bg2{
+                transform: translate3d(-10%, -15%, 0) rotate(-35deg)
+            }
+        }
+        #wrap{
+            padding-top:rem-calc(20);
+            padding-bottom:rem-calc(20);
+            z-index: 5;
+            #logo{
+                width:rem-calc(36);
+                height:rem-calc(36 * 1.09);
+                margin:0;
+                &:after{
+                    width:calc(100vw - #{rem-calc(70 + 28 + 28)});
+                    left:rem-calc(70);
+                }
+            }
+            h2{
+                margin-top:rem-calc(25);
+            }
+            h3{
+                @include setFont(15, 30);
+            }
+            #bottom{
+                margin-top:rem-calc(25);
+                @include setFont(25, 30);
+                flex-direction: column;
+                #left{
+                    width:100%;
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
+                #right{
+                    padding:0;
+                    margin-top:rem-calc(30);
+                }
+            }
+        }
+        #fb{
+            width: rem-calc(80);
+            height:rem-calc(80 * 2.23);
+            right:25%;
+        }
+        #ig{
+            width: rem-calc(200);
+            height:rem-calc(200 * 1.3);
+            top:auto;
+            bottom:rem-calc(80);
+            right:rem-calc(28);
+        }
+        #bg{
+            width:140%;
+            transform: translate3d(-50%,-25%,0) rotate(90deg);
+            left: 50%;
+            z-index: 4;
+            background-position: 0;
+        }
+        #bg2{
+            right:auto;
+            transform: translate3d(-10%, -15%, 0) rotate(-35deg)
+        }
     }
 }

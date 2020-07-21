@@ -104,13 +104,13 @@ const MyApp = ({ Component, pageProps }) => {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             <div id="bodyWrap" className={language}>
+                <Nav logonameElem={logonameElem}/>
                 <div id="mainWrap">
                     <div ref={scrollWrap} id="scrollWrap">
                         <Component {...pageProps} featuredImageElem={featuredImageElem} />
                         {currentpage !== 'contact' && <Footer footerElem={footerElem} /> }
                     </div>
                 </div>
-                <Nav logonameElem={logonameElem}/>
                 <canvas ref={canvasElem}></canvas>
             </div>
             <style jsx>{`

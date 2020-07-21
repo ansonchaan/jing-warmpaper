@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { wrapper } from '../../src/store'
 import Link from 'next/link'
@@ -10,13 +10,13 @@ const Flickity = (typeof window !== 'undefined') ? require('flickity') : null
 
 const Home = props => {
   const language = useSelector(state => state.language);
-  // const dispatch = useDispatch();
+  const [galleryIdx, setGalleryIdx] = useState(0);
   const {basePath} = useRouter();
 
   const gallery = useRef(null);
   
   useEffect(()=>{
-    let flkty = new Flickity( gallery.current, {cellAlign:'left', pageDots: false});
+    let flkty = new Flickity( gallery.current, {cellAlign:'left'});
     flkty.reposition();
 
     const lth = flkty.slides.length;
@@ -25,11 +25,15 @@ const Home = props => {
       for(let i=0; i<lth; i++){
         if(idx === i){
           const elem = flkty.slides[i].cells[0].element;
-          const x = (idx-(progress / (lth/2-1))) * (lth*100);
+          const x = (idx-(progress / (lth/2-1))) * (lth*50);
           elem.style.transform = `translate3d(${x}%,0,0)`;
         }
       }
     });
+
+    flkty.on('select', function(i){
+      setGalleryIdx(i);
+    })
 
     for(let i=0; i<lth; i++){
       const elem = flkty.slides[i].cells[0].element;
@@ -76,9 +80,8 @@ const Home = props => {
                     <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
                     </a>
                   </Link>
-                  {/* <span className="tag7 h3 b">Websites</span> */}
+                  <span className="tag tag7 h3 b">Websites</span>
                 </div>
-                {/* <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link> */}
               </li>
               <li>
                 <div id="imgWrap">
@@ -86,9 +89,8 @@ const Home = props => {
                     <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
                     </a>
                   </Link>
-                  {/* <span className="tag7 h3 b">Websites</span> */}
+                  <span className="tag tag5 h3 b">Websites</span>
                 </div>
-                {/* <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link> */}
               </li>
               <li>
                 <div id="imgWrap">
@@ -96,10 +98,20 @@ const Home = props => {
                     <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
                     </a>
                   </Link>
-                  {/* <span className="tag7 h3 b">Websites</span> */}
+                  <span className="tag tag3 h3 b">Websites</span>
                 </div>
-                {/* <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}><a id="name" className="h4">Cittapartner<br/> Portfolio Website</a></Link> */}
               </li>
+            </ul>
+            <ul id="name">
+              {
+                [...Array(3)].map((v,i)=>{
+                  return <li key={i} className={ i === galleryIdx ? 'active' : ''}>
+                      <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
+                        <a className="h5">{i+1} Cittapartner<br/> Portfolio Website</a>
+                      </Link>
+                    </li>
+                })
+              }
             </ul>
             </div>
         </div>
@@ -107,9 +119,9 @@ const Home = props => {
       <div id="h_solutions">
         <h3 id="title" className="b">Solutions</h3>
         <ul>
-          <li><div className="corner"><div className="icon"></div><h5 className="b">Web<br/>Design</h5><p className="small">A digital agency for brands that want more. The future of open meeting places for.</p></div></li>
+          <li><div className="corner"><div className="icon"></div><h5 className="b">Web<br/> Design</h5><p className="small">A digital agency for brands that want more. The future of open meeting places for.</p></div></li>
           <li><div className="corner"><div className="icon"></div><h5 className="b">Management & <br/>Communication</h5><p className="small">A digital agency for brands that want more. The future of open meeting places for.</p></div></li>
-          <li><div className="corner"><div className="icon"></div><h5 className="b">Business<br/>Analytic</h5><p className="small">A digital agency for brands that want more. The future of open meeting places for.</p></div></li>
+          <li><div className="corner"><div className="icon"></div><h5 className="b">Business<br/> Analytic</h5><p className="small">A digital agency for brands that want more. The future of open meeting places for.</p></div></li>
           <li><div className="corner"><div className="icon"></div><h5 className="b">Consultant & <br/>User Experience</h5><p className="small">A digital agency for brands that want more. The future of open meeting places for.</p></div></li>
         </ul>
         <div id="bgWrap">
@@ -121,8 +133,10 @@ const Home = props => {
         </div>
       </div>
       <div id="h_about" className="center">
-        <div id="icon"></div>
-        <h2 className="b">About<br/>Warmpaper</h2>
+        <div id="titleWrap">
+          <div id="icon"></div>
+          <h2 className="b">About<br/>Warmpaper</h2>
+        </div>
         <h4>One of the first things you should know about us is that we don’t do everything. But what we do, we do well.One of the first things you should know about us is that we don’t do everything. But what we do, we do well.</h4>
       </div>
       
@@ -130,6 +144,12 @@ const Home = props => {
         .bigTitle {
             font-size: 4.375rem;
             line-height: 5rem;
+        }
+        @media screen and (max-width: 700px){
+          .bigTitle {
+              font-size: 3.75rem;
+              line-height: 4.0625rem;
+          }
         }
       `}</style>
     </div>
