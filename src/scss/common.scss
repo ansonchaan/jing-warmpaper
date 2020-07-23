@@ -280,6 +280,7 @@
       // margin-left:rem-calc(-20);
       padding: rem-calc(10 15 10 20);
       background: #FB482A;
+      margin-right: rem-calc(22);
       z-index: 2;
       &:before{
         content:'';
@@ -444,6 +445,17 @@
     body{
       .center {
         padding: 0 rem-calc(28);
+      }
+      #bodyWrap{ 
+        #mainWrap{
+          #scrollWrap{
+            #pageTitle{
+              @include setFont(40, 80);
+              padding-top:rem-calc(100);
+              padding-bottom:0;
+            }
+          }
+        }
       }
     }
   }

@@ -145,15 +145,18 @@ const Projects = () => {
             <div id="pageTitle" className="bigTitle b center">Our Projects</div>
             <div id="tagWrap" className={`h4 center ${filter.length ? 'active' : ''}`}>
                 <p className="h5">Scroll to explore</p>
-                Paper is a thin<p className="t"><span className={`tag tag1 h4 b ${filter.find(v => v === '.cultural1') ? 'active' : ''}`} onClick={()=>onFiltering('.cultural1')}>Cultural</span></p>
-                sheet material produced<p className="t"><span className={`tag tag2 h4 b ${filter.find(v => v === '.cultural2') ? 'active' : ''}`} onClick={()=>onFiltering('.cultural2')}>Cultural</span></p> 
-                by mechanically <p className="t"><span className={`tag tag3 h4 ${filter.find(v => v === '.cultural3') ? 'active' : ''}`} onClick={()=>onFiltering('.cultural3')}>Cultural</span></p> 
-                and/or chemically <p className="t"><span className={`tag tag4 h4 b ${filter.find(v => v === '.development') ? 'active' : ''}`} onClick={()=>onFiltering('.development')}>DEVELOPMENT</span></p> 
-                processing cellulose fibres derived from wood,  rags, grasses or other vegetable sources in water, 
-                draining the water through fine mesh leaving the fibre <p className="t"><span className={`tag tag5 h4 b ${filter.find(v => v === '.mobileapp') ? 'active' : ''}`} onClick={()=>onFiltering('.mobileapp')}>Mobile App</span></p>  
-                evenly distributed <p className="t"><span className={`tag tag6 h4 b ${filter.find(v => v === '.ui') ? 'active' : ''}`} onClick={()=>onFiltering('.ui')}>UI</span></p> 
-                on the surface, followed<p className="t"><span className={`tag tag7 h4 b ${filter.find(v => v === '.website') ? 'active' : ''}`} onClick={()=>onFiltering('.website')}>Websites</span></p> 
-                by pressing and <p className="t"><span className={`tag tag8 h5 b ${filter.find(v => v === '.system') ? 'active' : ''}`} onClick={()=>onFiltering('.system')}>System</span></p>drying.
+                <div id="tags">
+                    <span>Paper is a thin</span><p className="t"><span className={`tag tag1 h4 b ${filter.find(v => v === '.cultural1') ? 'active' : ''}`} onClick={()=>onFiltering('.cultural1')}>Cultural</span></p>
+                    <span>sheet material produced</span><p className="t"><span className={`tag tag2 h4 b ${filter.find(v => v === '.cultural2') ? 'active' : ''}`} onClick={()=>onFiltering('.cultural2')}>Cultural</span></p> 
+                    <span>by mechanically</span> <p className="t"><span className={`tag tag3 h4 ${filter.find(v => v === '.cultural3') ? 'active' : ''}`} onClick={()=>onFiltering('.cultural3')}>Cultural</span></p> 
+                    <span>and/or chemically</span> <p className="t"><span className={`tag tag4 h4 b ${filter.find(v => v === '.development') ? 'active' : ''}`} onClick={()=>onFiltering('.development')}>DEVELOPMENT</span></p> 
+                    <span>processing cellulose fibres derived from wood,  rags, grasses or other vegetable sources in water,</span> 
+                    <span>draining the water through fine mesh leaving the fibre</span> <p className="t"><span className={`tag tag5 h4 b ${filter.find(v => v === '.mobileapp') ? 'active' : ''}`} onClick={()=>onFiltering('.mobileapp')}>Mobile App</span></p>  
+                    <span>evenly distributed</span> <p className="t"><span className={`tag tag6 h4 b ${filter.find(v => v === '.ui') ? 'active' : ''}`} onClick={()=>onFiltering('.ui')}>UI</span></p> 
+                    <span>on the surface, followed</span> <p className="t"><span className={`tag tag7 h4 b ${filter.find(v => v === '.website') ? 'active' : ''}`} onClick={()=>onFiltering('.website')}>Websites</span></p> 
+                    <span>by pressing and</span> <p className="t"><span className={`tag tag8 h5 b ${filter.find(v => v === '.system') ? 'active' : ''}`} onClick={()=>onFiltering('.system')}>System</span></p>
+                    <span>drying.</span>
+                </div>
             </div>
             <div id="projectListWrap">
                 <ul ref={projectListElem} id="projectList">
