@@ -51,6 +51,8 @@ const MyApp = ({ Component, pageProps }) => {
             dispatch({type:'UPDATE_PAGE', page:page});
             if(smooth.current)
                 smooth.current.reset();
+
+            document.body.scrollTo(0,0);
         }
     },[page])
 

@@ -84,6 +84,12 @@ h6, .h6 {
   .bigTitle{
     @include setFont(60, 65);
   }
+  h1, .h1 {
+    @include setFont(40, 70);
+  }
+  h2, .h2 {
+    @include setFont(35, 40);
+  }
   h5, .h5 {
     @include setFont(25, 35);
   }
@@ -98,7 +104,7 @@ h6, .h6 {
     @include setFont(60, 65);
   }
   h2, .h2 {
-    @include setFont(35, 40);
+    @include setFont(30, 40);
   }
   h3, .h3 {
     @include setFont(20, 25);
