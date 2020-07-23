@@ -435,6 +435,11 @@
       .center {
         padding: 0 rem-calc(60);
       }
+      .tag{
+        &.h5{
+          @include setFont(20, 25);
+        }
+      }
     }
   }
   @media only screen and (max-width: 768px) {
@@ -455,6 +460,11 @@
               padding-bottom:0;
             }
           }
+        }
+      }
+      .tag{
+        &.h5{
+          @include setFont(15, 20);
         }
       }
     }
