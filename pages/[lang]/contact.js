@@ -25,12 +25,11 @@ const Contact = () => {
     return (
         <div id="contact">
             <div id="wrap" className="center">
-                <h4>The best way to understand us is to talk to us. We”ll let you choose how.</h4>
                 <div id="info">
                     <div id="title" className="bigTitle b">Contact</div>
                     <div id="infoWrap">
-                        <div id="tel" className="bigTitle l">+ 852 2146 2890</div>
-                        <h3>Info@Warmpaper-Design.Com</h3>
+                        <div id="email" className="h1 l"><a href="mailto:info@warmpaper-design.com">Info@Warmpaper-Design.Com</a></div>
+                        <h3>+852 2146 2890</h3>
                         <h6>Talk to us about your exciting project.</h6>
                         <ul id="iconWrap">
                             <li><a id="fb" href="" target="_blank"></a></li>
@@ -38,11 +37,12 @@ const Contact = () => {
                         </ul>
                     </div>
                 </div>
+                <h4>The best way to understand us is to talk to us. We”ll let you choose how.</h4>
                 <div id="form"className={openform ? 'open' : ''}>
                     <div id="btn" className={openform ? 'close' : ''} onClick={()=>onOpenForm()}>
                         <span></span><span></span>
                     </div>
-                    <div id="title" className="b" onClick={()=>onOpenForm(true)}>Fill in the form<br/> below</div>
+                    <div id="title" className="b" onClick={()=>onOpenForm(true)}>Fill in the form<br/> <span>below</span></div>
                     <h6 id="remark">Please write down your <br/>enquiry and we will read it.</h6>
                     <form action="mailto:info@warmpaper-design.com" method="POST" encType="text/plain" name="EmailTestForm">
                         <div><input type="text" name="Name" placeholder="Full Name" /></div>

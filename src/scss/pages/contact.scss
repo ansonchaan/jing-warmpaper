@@ -1,7 +1,7 @@
 #contact{
     width:100%;
     height:100vh;
-    padding-top:rem-calc(176);
+    padding-top:rem-calc(156);
     background:$white;
     #wrap{
         position: relative;
@@ -17,7 +17,7 @@
             width:rem-calc(618);
             background:$lightpurple;
             position: relative;
-            padding:rem-calc(30 42 13);
+            padding:rem-calc(30 42 23);
             color:#515F7A;
             background:url($basePath+'/images/contactbg.png') no-repeat;
             // &:before{
@@ -39,12 +39,16 @@
             #infoWrap{
                 position: relative;
                 z-index: 2;
-                #tel{
+                #email{
                     margin-bottom:rem-calc(11);
+                    @include setFont(60,70);
+                    a{
+                        color: $drakblue;
+                    }
                 }
                 h3{
                     letter-spacing: rem-calc(2);
-                    margin-bottom:rem-calc(65);
+                    margin-bottom:rem-calc(45);
                 }
                 h6{
                     width:30%;
@@ -86,8 +90,8 @@
             transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
             &:before{
                 content:'';
-                width:rem-calc(170);
-                height:rem-calc(223);
+                width:22%;
+                height:40%;
                 background:url($basePath+'/images/sticker1.png') no-repeat;
                 background-size:100%;
                 position: absolute;
@@ -111,7 +115,7 @@
                 }
             }
             &.open{
-                transform: translate3d(0,0,0);
+                transform: translate3d(0,-68vh,0);
             }
             #btn{
                 width:rem-calc(53);
@@ -256,6 +260,139 @@
                         right:rem-calc(18);
                         transform: translate3d(0,-50%,0);
                         pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// tablet
+@media only screen and (max-width: 1024px) {
+    #contact{
+        height:auto;
+        #wrap{
+            padding-bottom:rem-calc(100);
+            padding-right:rem-calc(60);
+            #info{
+                width:100%;
+            }
+            h4{
+                width:100%;
+                position: relative;
+                top:auto;
+                right:auto;
+                padding:rem-calc(60) 0;
+                @include setFont(30, 35);
+            }
+            #form{
+                width:100%;
+                position: relative;
+                bottom:auto;
+                right:auto;
+                box-shadow: 0 0 rem-calc(30) rgba(0,0,0,.3);
+                &:before{
+                    width: 14%;
+                    top: 8%;
+                    right: 0;
+                }
+                #title{
+                    padding-bottom:rem-calc(10);
+                    br,span{
+                        display: none;
+                    }
+                }
+                #btn{
+                    display: none;
+                }
+                form{
+                    padding-bottom:rem-calc(50);
+                    &>div{
+                        height:auto;
+                        padding:rem-calc(5) 0;
+                    }
+                    input, textarea{
+                        @include setFont(40, 35);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// mobile
+@media only screen and (max-width: 700px) {
+    #contact{
+        padding-top:rem-calc(117);
+        #wrap{
+            padding-bottom:rem-calc(70);
+            padding-right:rem-calc(28);
+            h4{
+                padding-bottom:rem-calc(40);
+            }
+            #info{
+                padding:rem-calc(10 17 20);
+                #title{
+                    @include setFont(40, 50);
+                }
+                #infoWrap{
+                    #email{
+                        @include setFont(33, 40);
+                    }
+                    h3{
+                    }
+                    h6{
+                        width:60%;
+                        margin-bottom: rem-calc(20);
+                    }
+                    #iconWrap{
+                        li{
+                            margin-left:rem-calc(15);
+                        }
+                    }
+                }
+            }
+            #form{
+                padding:rem-calc(10 17);
+                &:before{
+                    width: 20%;
+                }
+                #title{
+                    @include setFont(25, 40);
+                    padding-bottom:0;
+                }
+                #remark{
+                    width:100%;
+                    right:0;
+                    text-align: center;
+                }
+                form{
+                    padding-top:rem-calc(20);
+                    padding-bottom:rem-calc(150);
+                    input, textarea{
+                        width:100%;
+                        @include setFont(30, 50);
+                    }
+                    #submit{
+                        width: 12.75rem;
+                        height: 8.25rem;
+                        background-size: 40vw;
+                        bottom:rem-calc(75);
+                        right:50%;
+                        transform: translate3d(50%,0,0);
+                        &:before{
+                            width:rem-calc(40);
+                            left:rem-calc(100);
+                        }
+                        &:after{
+                            width: 2.7rem;
+                            height: 2.2rem;
+                            bottom: rem-calc(-6);
+                        }
+                        div{
+                            width:25vw;
+                            height:25vw;
+                        }
                     }
                 }
             }
