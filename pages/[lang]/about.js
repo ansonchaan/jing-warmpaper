@@ -1,14 +1,34 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { wrapper } from '../../src/store'
 import { useRouter } from 'next/router';
 
+const Flickity = (typeof window !== 'undefined') ? require('flickity') : null
+
 const About = () => {
     const language = useSelector(state => state.language);
-    // const dispatch = useDispatch();
-    // const route = useRouter();
+    const flkty = useRef(null);
+    const cards = useRef(null);
   
     useEffect(()=>{
+        const onResize = () => {
+            if(window.innerWidth <= 1024){
+                if(!flkty.current)
+                    flkty.current = new Flickity( cards.current, {cellAlign:'center'});
+            }
+            else{
+                if(flkty.current){
+                    flkty.current.destroy();
+                    flkty.current = null;
+                }
+            }
+        }
+        onResize();
+        window.addEventListener('resize', onResize, false);
+
+        return () => {
+            window.removeEventListener('resize', onResize, false);
+        }
     },[]);
 
     return (
@@ -42,10 +62,10 @@ const About = () => {
             </div>
             <div id="believes">
                 <h3 id="title" className="b">Believes</h3>
-                <ul>
-                <li><div className="corner"><div className="num h4 b">1</div><h4 className="b">Multimedia as <br/>discipline</h4><p className="h6">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations we collaborate.</p></div></li>
-                <li><div className="corner"><div className="num h4 b">2</div><h4 className="b">Human as <br/>subject</h4><p className="h6">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations we collaborate.</p></div></li>
-                <li><div className="corner"><div className="num h4 b">3</div><h4 className="b">Human as <br/>subject</h4><p className="h6">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations we collaborate.</p></div></li>
+                <ul ref={cards} id="cards">
+                    <li><div className="corner"><div className="num h4 b">1</div><h4 className="b">Multimedia as <br/>discipline</h4><p className="h6">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations we collaborate.</p></div></li>
+                    <li><div className="corner"><div className="num h4 b">2</div><h4 className="b">Human as <br/>subject</h4><p className="h6">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations we collaborate.</p></div></li>
+                    <li><div className="corner"><div className="num h4 b">3</div><h4 className="b">Human as <br/>subject</h4><p className="h6">Hello Monday is a creative studio that makes digital (and magical) ideas, products and experiences. We’re called Hello Monday because we aim to make Mondays better. Better for the people and organizations we collaborate.</p></div></li>
                 </ul>
                 <div id="bgWrap">
                     <div id="bg">

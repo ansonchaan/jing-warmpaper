@@ -1,4 +1,9 @@
 #about {
+    #pageTitle{
+        border-bottom:rem-calc(1) solid $drakgray;
+        padding-top:rem-calc(114);
+        padding-bottom:0;
+    }
     #header{
         background:url($basePath+'/images/paper.png') repeat;
         #wrap{
@@ -11,7 +16,7 @@
             &:before{
                 content:'';
                 width:rem-calc(238);
-                height:rem-calc(269);
+                height:rem-calc(238 * 1.13);
                 background:url($basePath+'/images/tag1.png') center no-repeat;
                 background-size:100%;
                 position: absolute;
@@ -22,7 +27,7 @@
             &:after{
                 content:'';
                 width:rem-calc(553);
-                height:rem-calc(269);
+                height:rem-calc(553 * .486);
                 background:url($basePath+'/images/line2.png') center no-repeat;
                 background-size:100%;
                 position: absolute;
@@ -316,5 +321,163 @@
     }
     100%{
         transform: translate3d(0,0,0);
+    }
+}
+
+
+// tablet
+@media only screen and (max-width: 1024px) {
+    #about{
+        #pageTitle{
+            padding-bottom:rem-calc(24);
+        }
+        #header{
+            #wrap{
+                height: auto;
+                &:before{
+                    top:30%;
+                    left:20%;
+                }
+                &:after{
+                    bottom:25%;
+                }
+                #smile{
+                    top:50%;
+                    right:16%;
+                    width:rem-calc(150);
+                    height:rem-calc(150);
+                }
+                .row{
+                    display: block;
+                    &:nth-child(2){
+                        padding-top:rem-calc(350);
+                        padding-bottom:rem-calc(50);
+                    }
+                    svg{
+                        width: 150%;
+                        float: right;
+                    }
+                }
+            }
+        }
+        #believes{
+            padding:rem-calc(80 0 50);
+            #title{
+                left:rem-calc(100);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #about{
+        .description{
+            flex-direction: column;
+            #left{
+                width:100%;
+                padding:0;
+                margin-bottom: rem-calc(40);
+            }
+        }
+        #believes{
+            height:rem-calc(650);
+            ul{
+                li{
+                    .num{
+                        margin-bottom:rem-calc(50);
+                    }
+                    h4{
+                        margin-bottom:rem-calc(50);
+                    }
+                }
+            }
+            #bgWrap{
+                #bg{
+                    span{
+                        &:before{
+                            width:100vw;
+                            height:100vw;
+                        }
+                        &:nth-child(1){
+                            top:0%;
+                            left:80%;
+                        }
+                        &:nth-child(3){
+                            top:70%;
+                            left:50%;
+                        }
+                    }
+                }
+            }
+        }
+        #others{
+            padding-top:rem-calc(40);
+            ul{
+                &:before{
+                    width:70vw;
+                }
+                li{
+                    height:rem-calc(30);
+                }
+            }
+        }
+    }
+}
+
+// mobile
+@media only screen and (max-width: 700px) {
+    #about{
+        #header{
+            #wrap{
+                &:before{
+                    width:rem-calc(110);
+                    height:rem-calc(110 * 1.13);
+                    top:33%;
+                    left:5%;
+                }
+                &:after{
+                    width:rem-calc(260);
+                    height:rem-calc(260 * .486);
+                    left:3%;
+                    bottom:28%;
+                }
+                #smile{
+                    top:45%;
+                    right:5%;
+                    width:rem-calc(100);
+                    height:rem-calc(100);
+                }
+                .row{
+                    padding-right:rem-calc(28);
+                    &:nth-child(2){
+                        padding-top:rem-calc(200);
+                        padding-bottom:rem-calc(20);
+                    }
+                    svg{
+                        width: 200%;
+                    }
+                }
+            }
+        }
+        #believes{
+            #title{
+                left:rem-calc(45);
+                &:after{
+                    width:rem-calc(145);
+                    height:rem-calc(145 * .393);
+                }
+            }
+        }
+        #others{
+            padding-top:0;
+            ul{
+                &:before{
+                    width:80vw;
+                }
+                li{
+                    height:rem-calc(20);
+                }
+            }
+        }
     }
 }

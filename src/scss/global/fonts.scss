@@ -95,6 +95,13 @@ h6, .h6 {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .ultra {
+    font-size: 27vw;
+    line-height: 27vw;
+  }
+}
+
 // mobile
 @media only screen and (max-width: $mobile) {
   .big{
