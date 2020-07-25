@@ -5,11 +5,14 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 const Isotope = (typeof window !== 'undefined') ? require('isotope-layout') : null
+const OriDomi = (typeof window !== 'undefined') ? require('../../../src/js/oridomi') : null
 
 const Projects = () => {
     const language = useSelector(state => state.language);
     // const dispatch = useDispatch();
+    const [prevLth, setPrevLth] = useState(0);
     const [filter, setFilter] = useState([]);
+    const [cards, setCards] = useState([]);
     const route = useRouter();
     const { basePath } = route;
 
@@ -50,11 +53,27 @@ const Projects = () => {
 
     const iso = useRef(null);
     const projectListElem = useRef(null);
+    const li = []
+    // const cardElem = useRef(li);
   
     useEffect(()=>{
         iso.current = new Isotope(projectListElem.current,{
             stamp:'.space'
         });
+
+        const lists = projectListElem.current.querySelectorAll('li:not(.space)');
+        const li = [];
+        for(let i=0; i<lists.length; i++){
+            const o = new OriDomi(`.card_${i}`, {
+                hPanels: [40, 15, 15, 15, 15],
+                speed:300,
+                ripple: true
+            });
+            o.disableTouch();
+            li.push(o);
+        }
+        setCards(li);
+
         setTimeout(()=>{
             iso.current.layout();
         },100);
@@ -64,6 +83,19 @@ const Projects = () => {
         if(iso.current && data.length > 8){
             iso.current.reloadItems();
             iso.current.arrange();
+
+            const li = [];
+            for(let i=prevLth; i<data.length; i++){
+                const o = new OriDomi(`.card_${i}`, {
+                    hPanels: [40, 15, 15, 15, 15],
+                    speed:300,
+                    ripple: true
+                });
+                o.disableTouch();
+                li.push(o);
+            }
+            const c = [...cards, ...li];
+            setCards(c);
         }
     },[data])
 
@@ -75,6 +107,14 @@ const Projects = () => {
             iso.current.arrange({filter: ''});
         }
     },[filter])
+
+    const onEnterCard = (i) => {
+        cards[i].reveal(50, 'top');
+    }
+
+    const onLeaveCard = (i) => {
+        cards[i].reveal(0.1, 'top');
+    }
 
     const onFiltering = (f) => {
         const array = [...filter];
@@ -89,6 +129,7 @@ const Projects = () => {
     }
 
     const addData = () => {
+        setPrevLth(data.length);
         setData([...data,
             {
                 name:"Cittapartner<br/>Portfolio Website",
@@ -167,7 +208,7 @@ const Projects = () => {
                                     <Link href="/[lang]/projects/[post]" as={`/${language}/projects/test`}>
                                         <a id="itemWrap">
                                             <span className={`tag ${mapcattotag[v.category].tag} h5 b`}>{mapcattotag[v.category].name}</span>
-                                            <div className="corner">
+                                            <div className={`card card_${i}`} onMouseEnter={()=>onEnterCard(i)} onMouseLeave={()=>onLeaveCard(i)}>
                                                 <div id="wrap">
                                                     <div id="imgWrap"><div id="img" style={{backgroundImage:`url(${basePath}/images/project1.png)`}}></div></div>
                                                     <div id="name" className="h4" dangerouslySetInnerHTML={{__html:v.name}}></div>
