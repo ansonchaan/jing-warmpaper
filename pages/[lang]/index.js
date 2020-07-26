@@ -68,7 +68,7 @@ const Home = props => {
         <div id="wrap" className="center">
           <div id="left">
             <h2 className="b">A digital agency for brands that want more.</h2>
-            <Link href="/[lang]/projects" as={`/${language}/projects`}><a className="h5"><u>View all projects ></u></a></Link>
+            <Link href="/[lang]/projects" as={`/${language}/projects`}><a className="h5"><u>View all projects</u></a></Link>
           </div>
           <div id="right">
             <ul ref={gallery} id="gallery">
@@ -84,7 +84,7 @@ const Home = props => {
               <li>
                 <div id="imgWrap">
                   <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
-                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects2.png')`}}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects5.png')`}}>
                     </a>
                   </Link>
                   <span className="tag tag5 h3 b">Websites</span>
@@ -93,7 +93,7 @@ const Home = props => {
               <li>
                 <div id="imgWrap">
                   <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
-                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects3.png')`}}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects8.png')`}}>
                     </a>
                   </Link>
                   <span className="tag tag3 h3 b">Websites</span>
