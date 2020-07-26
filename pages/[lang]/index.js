@@ -54,9 +54,7 @@ const Home = props => {
       <div id="banner" className="center">
         <div className="bigTitle b">A Digital Agency.</div>
         <div id="slogan">
-          <div id="wrap">
-            <div id="time" className="b">13:06</div>
-          </div>
+          <div id="wrap"></div>
           <h2>We make digital Experiences because we are <u>designer</u>.</h2>
           <h5>Scroll to explore</h5>
         </div>
@@ -77,7 +75,7 @@ const Home = props => {
               <li>
                 <div id="imgWrap">
                   <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
-                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects1.png')`}}>
                     </a>
                   </Link>
                   <span className="tag tag7 h3 b">Websites</span>
@@ -86,7 +84,7 @@ const Home = props => {
               <li>
                 <div id="imgWrap">
                   <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
-                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects2.png')`}}>
                     </a>
                   </Link>
                   <span className="tag tag5 h3 b">Websites</span>
@@ -95,7 +93,7 @@ const Home = props => {
               <li>
                 <div id="imgWrap">
                   <Link href="/[lang]/projects/[post]" as={`/${language}/projects/a`}>
-                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/project1.png')`}}>
+                    <a id="img" className="corner" style={{backgroundImage:`url('${basePath}/images/projects3.png')`}}>
                     </a>
                   </Link>
                   <span className="tag tag3 h3 b">Websites</span>

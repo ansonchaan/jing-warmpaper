@@ -28,8 +28,8 @@ const Contact = () => {
                 <div id="info">
                     <div id="title" className="bigTitle b">Contact</div>
                     <div id="infoWrap">
-                        <div id="email" className="h1 l"><a href="mailto:info@warmpaper-design.com">Info@Warmpaper-Design.Com</a></div>
-                        <h3>+852 2146 2890</h3>
+                        <div id="email" className="h3 l"><a href="mailto:info@warmpaper-design.com">Info@Warmpaper-Design.Com</a></div>
+                        <h5 className="l">+852 2146 2890</h5>
                         <h6>Talk to us about your exciting project.</h6>
                         <ul id="iconWrap">
                             <li><a id="fb" href="" target="_blank"></a></li>
@@ -42,7 +42,7 @@ const Contact = () => {
                     <div id="btn" className={openform ? 'close' : ''} onClick={()=>onOpenForm()}>
                         <span></span><span></span>
                     </div>
-                    <div id="title" className="b" onClick={()=>onOpenForm(true)}>Fill in the form<br/> <span>below</span></div>
+                    <div id="title" className="h3 b" onClick={()=>onOpenForm(true)}>Contact Form</div>
                     <h6 id="remark">Please write down your <br/>enquiry and we will read it.</h6>
                     <form action="mailto:info@warmpaper-design.com" method="POST" encType="text/plain" name="EmailTestForm">
                         <div><input type="text" name="Name" placeholder="Full Name" /></div>

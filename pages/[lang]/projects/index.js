@@ -207,10 +207,10 @@ const Projects = () => {
                                 <li key={i} className={`${v.category}`}>
                                     <Link href="/[lang]/projects/[post]" as={`/${language}/projects/test`}>
                                         <a id="itemWrap">
-                                            <span className={`tag ${mapcattotag[v.category].tag} h5 b`}>{mapcattotag[v.category].name}</span>
+                                            <span className={`tag ${mapcattotag[v.category].tag} h6 b`}>{mapcattotag[v.category].name}</span>
                                             <div className={`card card_${i}`} onMouseEnter={()=>onEnterCard(i)} onMouseLeave={()=>onLeaveCard(i)}>
                                                 <div id="wrap">
-                                                    <div id="imgWrap"><div id="img" style={{backgroundImage:`url(${basePath}/images/project1.png)`}}></div></div>
+                                                    <div id="imgWrap"><div id="img" style={{backgroundImage:`url(${basePath}/images/projects${i+1}.png)`}}></div></div>
                                                     <div id="name" className="h4" dangerouslySetInnerHTML={{__html:v.name}}></div>
                                                 </div>
                                                 <div id={v.category === 'system' || v.category === 'ui' || v.category === 'cultural2' ? 'des_s' : 'des'} className="small"></div>

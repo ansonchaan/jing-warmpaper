@@ -11,6 +11,17 @@
             }
         }
     }
+    &.active{
+        &:before{
+            content:'';
+            width:100vw;
+            height:100vh;
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 1;
+        }
+    }
     #logo{
         position: absolute;
         top:rem-calc(50);
@@ -169,6 +180,7 @@
         position: fixed;
         left:0;
         top:0;
+        z-index: 2;
         padding-left:rem-calc(134);
         background: url($basePath+'/images/paper.png') repeat;
         box-shadow: rem-calc(10 10 50) #0000005C;

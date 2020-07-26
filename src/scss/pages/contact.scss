@@ -20,6 +20,17 @@
             padding:rem-calc(30 42 23);
             color:#515F7A;
             background:url($basePath+'/images/contactbg.png') no-repeat;
+            &:before{
+                content:'';
+                width:rem-calc(113);
+                height:rem-calc(82);
+                background:url($basePath+'/images/rigaiff.png') center no-repeat;
+                background-size:100%;
+                mix-blend-mode: color-burn;
+                position: absolute;
+                top:rem-calc(27);
+                right:rem-calc(27);
+            }
             // &:before{
             //     content:'';
             //     width:100%;
@@ -40,13 +51,12 @@
                 position: relative;
                 z-index: 2;
                 #email{
-                    margin-bottom:rem-calc(11);
-                    @include setFont(60,70);
+                    margin-bottom:rem-calc(5);
                     a{
                         color: $drakblue;
                     }
                 }
-                h3{
+                h5{
                     letter-spacing: rem-calc(2);
                     margin-bottom:rem-calc(45);
                 }
@@ -81,24 +91,24 @@
             height:auto;
             padding:rem-calc(44 40);
             position: fixed;
-            bottom:-68vh;
+            bottom:rem-calc(-485);
             right:rem-calc(83);
             z-index: 10;
-            background:url($basePath+'/images/formbg.png') no-repeat;
-            background-size:cover;
+            background:url($basePath+'/images/formbg2.png') left top no-repeat;
+            background-size:100%;
             transform: translate3d(0,0,0);
             transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
-            &:before{
-                content:'';
-                width:22%;
-                height:40%;
-                background:url($basePath+'/images/sticker1.png') no-repeat;
-                background-size:100%;
-                position: absolute;
-                top:rem-calc(25);
-                right:rem-calc(40);
-                pointer-events: none;
-            }
+            // &:before{
+            //     content:'';
+            //     width:22%;
+            //     height:40%;
+            //     background:url($basePath+'/images/sticker1.png') no-repeat;
+            //     background-size:100%;
+            //     position: absolute;
+            //     top:rem-calc(25);
+            //     right:rem-calc(40);
+            //     pointer-events: none;
+            // }
             &:after{
                 content:'';
                 width:100%;
@@ -115,14 +125,14 @@
                 }
             }
             &.open{
-                transform: translate3d(0,-68vh,0);
+                transform: translate3d(0,calc(-85vh + #{rem-calc(100)}),0);
             }
             #btn{
                 width:rem-calc(53);
                 height:rem-calc(43);
                 border: rem-calc(4) solid $black;
                 position: absolute;
-                top:rem-calc(49);
+                top:rem-calc(40);
                 z-index: 2;
                 cursor: pointer;
                 &:before{
@@ -175,10 +185,20 @@
             }
             #title{
                 width:100%;
-                @include setFont(35, 40);
                 border-bottom:rem-calc(5) solid $black;
                 text-align: center;
                 padding-bottom:rem-calc(27);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:before{
+                    content:'';
+                    width:rem-calc(35);
+                    height:rem-calc(35);
+                    margin-right:rem-calc(20);
+                    background:url($basePath+'/images/mailicon.svg') center no-repeat;
+                    display: inline-block;
+                }
             }
             #remark{
                 color:#CBCBCB;
@@ -199,7 +219,7 @@
                     height:100%;
                     font-family: $defaultFont;
                     font-weight: 900;
-                    @include setFont(50,45);
+                    @include setFont(40,45);
                     &::placeholder{
                         font-weight: 200;
                     }
@@ -291,16 +311,8 @@
                 bottom:auto;
                 right:auto;
                 box-shadow: 0 0 rem-calc(30) rgba(0,0,0,.3);
-                &:before{
-                    width: 14%;
-                    top: 8%;
-                    right: 0;
-                }
                 #title{
                     padding-bottom:rem-calc(10);
-                    br,span{
-                        display: none;
-                    }
                 }
                 #btn{
                     display: none;
@@ -332,15 +344,15 @@
             }
             #info{
                 padding:rem-calc(10 17 20);
+                &:before{
+                    width:rem-calc(80);
+                    top:rem-calc(0);
+                    right:rem-calc(10);
+                }
                 #title{
                     @include setFont(40, 50);
                 }
                 #infoWrap{
-                    #email{
-                        @include setFont(33, 40);
-                    }
-                    h3{
-                    }
                     h6{
                         width:60%;
                         margin-bottom: rem-calc(20);
@@ -354,9 +366,6 @@
             }
             #form{
                 padding:rem-calc(10 17);
-                &:before{
-                    width: 20%;
-                }
                 #title{
                     @include setFont(25, 40);
                     padding-bottom:0;

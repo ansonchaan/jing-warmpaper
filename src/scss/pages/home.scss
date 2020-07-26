@@ -65,28 +65,37 @@
             }
         }
         #slogan{
-            width:50%;
+            width:70%;
+            max-width: rem-calc(600);
             #wrap{
                 display: flex;
                 align-items: center;
-                &:after{
+                &:before{
                     content:'';
-                    width:rem-calc(113);
-                    height:rem-calc(82);
-                    background:url($basePath+'/images/rigaiff.png') center no-repeat;
-                    background-size:80%;
-                    display: inline-block;
-                    margin-left:rem-calc(15);
+                    width:rem-calc(72);
+                    height:rem-calc(90);
+                    background:url($basePath+'/images/label3.png') center no-repeat;
+                    background-size:100%;
+                    margin-left:rem-calc(-15);
                 }
-                #time{
-                    padding:rem-calc(3 10);
-                    border-radius: rem-calc(50);
-                    background:$black;
-                    color:$white;
-                    display: inline-block;
-                    @include setFont(23, 25);
-                    letter-spacing: rem-calc(1);
-                }
+                // &:after{
+                //     content:'';
+                //     width:rem-calc(113);
+                //     height:rem-calc(82);
+                //     background:url($basePath+'/images/rigaiff.png') center no-repeat;
+                //     background-size:80%;
+                //     display: inline-block;
+                //     margin-left:rem-calc(15);
+                // }
+                // #time{
+                //     padding:rem-calc(3 10);
+                //     border-radius: rem-calc(50);
+                //     background:$black;
+                //     color:$white;
+                //     display: inline-block;
+                //     @include setFont(23, 25);
+                //     letter-spacing: rem-calc(1);
+                // }
             }
             h5{
                 margin-top:rem-calc(15);

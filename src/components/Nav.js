@@ -57,7 +57,7 @@ const Nav = (props) => {
     }
 
     return(
-        <div id="nav" className={page}>
+        <div id="nav" className={`${page} ${activeMenu ? 'active' : ''}`}>
             <Link href="/[lang]" as={`/${language}`}><a ref={props.logonameElem} id="logo" className="h3 b"><span>Warmpaper Design</span></a></Link>
             <div id="menuBtn" className={activeMenu ? 'active' : ''}>
                 <div id="default" onClick={()=>!activeMenu && onOpenMenu(true)}>

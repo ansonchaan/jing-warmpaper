@@ -15,7 +15,7 @@
     }
     &.active{
         #bg2{
-            transform: translate3d(35%, 5%, 0) rotate(35deg);
+            transform: translate3d(35%, -10%, 0) rotate(35deg);
         }
     }
     &[data-page="home"]{
