@@ -48,7 +48,7 @@ const About = () => {
                             </defs>
                             <g clipPath="url(#myClip)">
                                 <circle cx="900" cy="140" r="200" filter="url(#blur)" />
-                                <circle cx="1200" cy="140" r="100" filter="url(#blur)" opacity=".6" />
+                                <circle cx="1300" cy="140" r="150" filter="url(#blur)" opacity=".6" />
                             </g>
                         </svg>
                     </div>

@@ -88,7 +88,7 @@ const Projects = () => {
             for(let i=prevLth; i<data.length; i++){
                 const o = new OriDomi(`.card_${i}`, {
                     hPanels: [40, 15, 15, 15, 15],
-                    speed:300,
+                    // speed:10000,
                     ripple: true
                 });
                 o.disableTouch();
@@ -109,7 +109,7 @@ const Projects = () => {
     },[filter])
 
     const onEnterCard = (i) => {
-        cards[i].reveal(50, 'top');
+        cards[i].reveal(30, 'top').setSpeed(600);
     }
 
     const onLeaveCard = (i) => {

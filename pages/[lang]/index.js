@@ -11,12 +11,14 @@ const Flickity = (typeof window !== 'undefined') ? require('flickity') : null
 const Home = props => {
   const language = useSelector(state => state.language);
   const [galleryIdx, setGalleryIdx] = useState(0);
+  const [txtIdx, setTxtIdx] = useState(0);
   const {basePath} = useRouter();
 
+  const txtAnimElem = useRef(null);
   const gallery = useRef(null);
   
   useEffect(()=>{
-    let flkty = new Flickity( gallery.current, {cellAlign:'left'});
+    let flkty = new Flickity( gallery.current, {cellAlign:'left', pageDots: false});
     flkty.reposition();
 
     const lth = flkty.slides.length;
@@ -47,6 +49,39 @@ const Home = props => {
     }
   },[]);
 
+  const txt = ['designer', 'programmer', 'team player', 'researcher'];
+  useEffect(()=>{
+    let idx = 0;
+    let _in = null;
+    let _out = null;
+
+    const outText = () => {
+      if(txtAnimElem)
+        _out = gsap.to(txtAnimElem.current.querySelectorAll('span'), .6, {delay:3, force3D:true, stagger:.06, y:'-100%', ease:'power3.in',
+          onComplete:function(){
+            idx = idx+1 < txt.length ? idx+1 : 0;
+            setTxtIdx(idx);
+            if(txtAnimElem) inText();
+          }
+        });
+    }
+
+    const inText = () => {
+      if(txtAnimElem)
+        _in = gsap.fromTo(txtAnimElem.current.querySelectorAll('span'), .6, {y:'100%'}, {y:'0%', stagger:.06, ease:'power3.out',
+          onComplete:function(){
+            outText();
+          }
+        })
+    }
+
+    outText();
+    return () => {
+      if(_out) _out.kill();
+      if(_in) _in.kill();
+    }
+  },[]);
+
   const data = props.data;
 
   return (
@@ -54,8 +89,23 @@ const Home = props => {
       <div id="banner" className="center">
         <div className="bigTitle b">A Digital Agency.</div>
         <div id="slogan">
-          <div id="wrap"></div>
-          <h2>We make digital Experiences because we are <u>designer</u>.</h2>
+          {/* <div id="wrap"></div> */}
+          <h2>We make digital Experiences because we are&nbsp;
+            <span ref={txtAnimElem}>
+                {
+                  txt[txtIdx].split('').map((v,i)=>{
+                    return <span key={i} dangerouslySetInnerHTML={{__html:v.replace(' ','&nbsp;')}}></span>
+                  })
+                }
+              {/* <span>
+                {
+                  txt[txtIdx].split('').map((v,i)=>{
+                    return <span key={i}>{v}</span>
+                  })
+                }
+              </span> */}
+            </span>
+          .</h2>
           <h5>Scroll to explore</h5>
         </div>
         <div id="bg">
@@ -131,11 +181,13 @@ const Home = props => {
         </div>
       </div>
       <div id="h_about" className="center">
-        <div id="titleWrap">
-          <div id="icon"></div>
-          <h2 className="b">About<br/>Warmpaper</h2>
+        <div id="wrap">
+          <div id="titleWrap">
+            {/* <div id="icon"></div> */}
+            <h2 className="b">About<br/>Warmpaper</h2>
+          </div>
+          <h4>One of the first things you should know about us is that we don’t do everything. But what we do, we do well.One of the first things you should know about us is that we don’t do everything. But what we do, we do well.</h4>
         </div>
-        <h4>One of the first things you should know about us is that we don’t do everything. But what we do, we do well.One of the first things you should know about us is that we don’t do everything. But what we do, we do well.</h4>
       </div>
       
       <style jsx>{`

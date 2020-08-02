@@ -101,6 +101,20 @@
                 margin-top:rem-calc(15);
                 color:$gray;
             }
+            h2>span{
+                overflow: hidden;
+                display: inline-flex;
+                position: relative;
+                &:after{
+                    content:'';
+                    width:100%;
+                    height:rem-calc(3);
+                    background:$black;
+                    position: absolute;
+                    bottom:rem-calc(6);
+                    left:0;
+                }
+            }
         }
     }
     #h_projects{
@@ -150,6 +164,23 @@
                         transform: translate3d(0,-50%,0);
                         mix-blend-mode: darken;
                         pointer-events: none;
+                    }
+                    .flickity-button{
+                        width:rem-calc(30);
+                        height:rem-calc(30);
+                        position: absolute;
+                        top:50%;
+                        transform: translate3d(0,-50%,0);
+                        opacity:.15;
+                        &:disabled{
+                            opacity: .05;
+                        }
+                        &.previous{
+                            right:calc(100% + #{rem-calc(30)});
+                        }
+                        &.next{
+                            left:calc(100% + #{rem-calc(30)});
+                        }
                     }
                     .flickity-slider{
                         transform: none !important;
@@ -417,19 +448,23 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        #icon{
-            width:rem-calc(120);
-            height:rem-calc(120 * 0.858);
-            background:url($basePath+'/images/note.svg') no-repeat;
-            background-size:100%;
-            margin-bottom:rem-calc(38);
-        }
-        h4{
-            width:rem-calc(591);
-            position: absolute;
-            top:50%;
-            right:rem-calc(169);
-            transform: translate3d(0,-50%,0);
+        #wrap{
+            display: flex;
+            justify-content: space-between;
+            #icon{
+                width:rem-calc(120);
+                height:rem-calc(120 * 0.858);
+                background:url($basePath+'/images/note.svg') no-repeat;
+                background-size:100%;
+                margin-bottom:rem-calc(38);
+            }
+            h4{
+                width:rem-calc(591);
+                // position: absolute;
+                // top:50%;
+                // right:rem-calc(169);
+                // transform: translate3d(0,-50%,0);
+            }
         }
     }
 }
@@ -541,8 +576,11 @@
             }
         }
         #h_about{
+            #wrap{
+                display: block;
+            }
             h4{
-                right:rem-calc(60);
+                margin-top:rem-calc(30);
             }
         }
     }
@@ -658,6 +696,7 @@
         }
         #h_projects{
             #wrap{
+                padding:rem-calc(0 60);
                 &:before{
                     bottom:3%;
                 }
@@ -675,6 +714,31 @@
                                 .tag {
                                     left:rem-calc(15);
                                 }
+                                .tag7{
+                                    padding-left: rem-calc(50);
+                                    padding-right: rem-calc(20);
+                                    @include setFont(20, 25);
+                                    &:before{
+                                        width:rem-calc(17);
+                                        height:rem-calc(15);
+                                        border-width: rem-calc(2);
+                                        padding-top:rem-calc(2);
+                                        @include setFont(15, 15);
+                                        left:8%;
+                                    }
+                                    &:after{
+                                        left:24%;
+                                        top:50%;
+                                    }
+                                }
+                            }
+                        }
+                        .flickity-button{
+                            &.previous{
+                                right:calc(100% + #{rem-calc(15)});
+                            }
+                            &.next{
+                                left:calc(100% + #{rem-calc(15)});
                             }
                         }
                     }
@@ -756,7 +820,7 @@
         }
         #h_about{
             background-position: 70% bottom;
-            background-size:auto 120%;
+            // background-size:auto 120%;
             padding-top: rem-calc(80);
             padding-bottom: rem-calc(50);
             #titleWrap{
@@ -766,8 +830,11 @@
                     margin-right:rem-calc(20);
                 }
             }
-            h4{
-                margin-top:rem-calc(30);
+            #wrap{
+                h4{
+                    width:100%;
+                    margin-top:rem-calc(30);
+                }
             }
         }
     }
