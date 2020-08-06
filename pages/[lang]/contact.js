@@ -15,6 +15,7 @@ const Contact = () => {
     },[]);
 
     const onOpenForm = (bool = undefined) => {
+        if(window.innerWidth > 1024)
         setOpenform(bool ? bool : !openform);
     }
 

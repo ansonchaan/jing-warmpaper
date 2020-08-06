@@ -366,9 +366,16 @@
             }
             #form{
                 padding:rem-calc(10 17);
+                background-size: auto 105%;
                 #title{
                     @include setFont(25, 40);
                     padding-bottom:0;
+                    &:before{
+                        width: rem-calc(20);
+                        height: rem-calc(20);
+                        background-size:100%;
+                        margin-right:rem-calc(10);
+                    }
                 }
                 #remark{
                     width:100%;
