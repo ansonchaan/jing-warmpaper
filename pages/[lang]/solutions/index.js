@@ -96,7 +96,6 @@ const Solutions = () => {
                             <Link href="/[lang]/solutions/[post]" as={`/${language}/solutions/test`}>
                                 <a style={{backgroundColor:'#eff0ea'}}>
                                     <div id="front">
-                                        <div id="icon"></div>
                                         <div id="wrap">
                                             <div id="title">
                                                 <h2 className="b">Consultant & User Experiences</h2>

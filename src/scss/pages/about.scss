@@ -13,17 +13,17 @@
             flex-direction: column;
             text-transform: uppercase;
             position: relative;
-            &:before{
-                content:'';
-                width:rem-calc(238);
-                height:rem-calc(238 * 1.13);
-                background:url($basePath+'/images/tag1.png') center no-repeat;
-                background-size:100%;
-                position: absolute;
-                top:rem-calc(64);
-                left:rem-calc(242);
-                z-index: 2;
-            }
+            // &:before{
+            //     content:'';
+            //     width:rem-calc(238);
+            //     height:rem-calc(238 * 1.13);
+            //     background:url($basePath+'/images/tag1.png') center no-repeat;
+            //     background-size:100%;
+            //     position: absolute;
+            //     top:rem-calc(64);
+            //     left:rem-calc(242);
+            //     z-index: 2;
+            // }
             &:after{
                 content:'';
                 width:rem-calc(553);
@@ -34,6 +34,7 @@
                 bottom:rem-calc(95);
                 right:rem-calc(265);
                 z-index: 2;
+                mix-blend-mode: multiply;
             }
             svg{
                 circle{

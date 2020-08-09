@@ -20,7 +20,10 @@ export const adjustFontSize = (baseFontRatio = 16 / 1440, fontMultiplier = 0.843
   );
 
   if (roundedNumber >= 16){
+    if(roundedNumber < 18)
       document.documentElement.style.fontSize = roundedNumber + "px";
+    else
+      document.documentElement.style.fontSize = 18 + "px";
  } else 
       document.documentElement.style.fontSize = "";
 };

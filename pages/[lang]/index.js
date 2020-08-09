@@ -27,7 +27,7 @@ const Home = props => {
       for(let i=0; i<lth; i++){
         if(idx === i){
           const elem = flkty.slides[i].cells[0].element;
-          const x = (idx-(progress / (lth/2-1))) * (lth*50);
+          const x = (idx-(progress / (lth/2-1))) * (lth*100);
           elem.style.transform = `translate3d(${x}%,0,0)`;
         }
       }
@@ -57,6 +57,7 @@ const Home = props => {
 
     const outText = () => {
       if(txtAnimElem)
+        gsap.to(txtAnimElem.current.querySelectorAll('div'), .8, {delay:3, scaleX:0, transformOrigin:'right', ease:'power3.in'});
         _out = gsap.to(txtAnimElem.current.querySelectorAll('span'), .6, {delay:3, force3D:true, stagger:.06, y:'-100%', ease:'power3.in',
           onComplete:function(){
             idx = idx+1 < txt.length ? idx+1 : 0;
@@ -68,6 +69,7 @@ const Home = props => {
 
     const inText = () => {
       if(txtAnimElem)
+        gsap.to(txtAnimElem.current.querySelectorAll('div'), .8, {scaleX:1, transformOrigin:'left', ease:'power3.out'});
         _in = gsap.fromTo(txtAnimElem.current.querySelectorAll('span'), .6, {y:'100%'}, {y:'0%', stagger:.06, ease:'power3.out',
           onComplete:function(){
             outText();
@@ -97,6 +99,7 @@ const Home = props => {
                     return <span key={i} dangerouslySetInnerHTML={{__html:v.replace(' ','&nbsp;')}}></span>
                   })
                 }
+                <div></div>
               {/* <span>
                 {
                   txt[txtIdx].split('').map((v,i)=>{
@@ -220,5 +223,16 @@ export const getStaticPaths = async () => {
 
   return{ paths, fallback: false }
 }
+
+// export const getServerSideProps = wrapper.getServerSideProps( async ({ store }) => {  
+//     const d = await fetch("API_URL");  //<-- change "API_URL"
+//     const data = await d.json();
+  
+//     return {
+//       props: {
+//         data,
+//       }
+//     }
+// })
 
 export default Home;

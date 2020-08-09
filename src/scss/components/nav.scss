@@ -195,18 +195,18 @@
             // transition-delay: .6s;
             transform: translate3d(rem-calc(280),rem-calc(-50),0) rotate(-14deg);
         }
-        &:before{
-            content:'';
-            width: rem-calc(295);
-            height: rem-calc(295);
-            background:url($basePath+'/images/smile.png') no-repeat;
-            background-size:100%;
-            position: absolute;
-            top:50%;
-            left:50%;
-            transform: translate3d(0%,-11%,0) rotate(14deg);
-            pointer-events: none;
-        }
+        // &:before{
+        //     content:'';
+        //     width: rem-calc(295);
+        //     height: rem-calc(295);
+        //     background:url($basePath+'/images/smile.png') no-repeat;
+        //     background-size:100%;
+        //     position: absolute;
+        //     top:50%;
+        //     left:50%;
+        //     transform: translate3d(0%,-11%,0) rotate(14deg);
+        //     pointer-events: none;
+        // }
         &:after{
             content:'';
             width:rem-calc(640);
@@ -223,6 +223,8 @@
         a{
             color:$black;
             cursor: pointer;
+            overflow: hidden;
+            float: left;
             &.active,
             &:hover{
                 #text{

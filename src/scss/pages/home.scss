@@ -105,7 +105,7 @@
                 overflow: hidden;
                 display: inline-flex;
                 position: relative;
-                &:after{
+                div{
                     content:'';
                     width:100%;
                     height:rem-calc(3);
@@ -113,6 +113,8 @@
                     position: absolute;
                     bottom:rem-calc(6);
                     left:0;
+                    transform-origin: left;
+                    transform: translate3d(0,0,0) scaleX(1);
                 }
             }
         }
@@ -735,7 +737,7 @@
                         }
                         .flickity-button{
                             &.previous{
-                                right:calc(100% + #{rem-calc(15)});
+                                right:calc(100% + #{rem-calc(15slogan)});
                             }
                             &.next{
                                 left:calc(100% + #{rem-calc(15)});

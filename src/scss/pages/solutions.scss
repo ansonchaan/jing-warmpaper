@@ -109,22 +109,16 @@
                             color:#65474B;
                             #front{
                                 &:after{
-                                    content:'';
-                                    width:rem-calc(158);
-                                    height:rem-calc(158);
-                                    background:url($basePath+'/images/solutions2.png') no-repeat;
+                                    background:url($basePath+'/images/s_Icon_1.png') no-repeat;
                                     background-size:100%;
-                                    position: absolute;
-                                    bottom:rem-calc(98);
-                                    left:50%;
-                                    transform: translate3d(-50%,0,0);
-                                    mix-blend-mode: darken;
+                                    bottom:rem-calc(30);
+                                    left:rem-calc(30);
                                 }
                                 #wrap{
                                     svg{
                                         position: absolute;
-                                        bottom:rem-calc(45);
-                                        right:rem-calc(45);
+                                        bottom:rem-calc(30);
+                                        right:rem-calc(30);
                                         path{
                                             fill:#b7b371;
                                         }
@@ -143,14 +137,10 @@
                                 display: flex;
                                 align-items: flex-end;
                                 &:after{
-                                    content:'';
-                                    width:rem-calc(111);
-                                    height:rem-calc(114);
-                                    background:url($basePath+'/images/solutions1.png') no-repeat;
+                                    background:url($basePath+'/images/s_Icon_2.png') no-repeat;
                                     background-size:100%;
-                                    position: absolute;
-                                    top:rem-calc(40);
-                                    right:rem-calc(40);
+                                    top:rem-calc(30);
+                                    right:rem-calc(30);
                                 }
                                 #wrap{
                                     display: flex;
@@ -181,14 +171,10 @@
                             }
                             #front{
                                 &:after{
-                                    content:'';
-                                    width:rem-calc(143);
-                                    height:rem-calc(110);
-                                    background:url($basePath+'/images/solutions3.png') no-repeat;
+                                    background:url($basePath+'/images/s_Icon_3.png') no-repeat;
                                     background-size:100%;
-                                    position: absolute;
                                     bottom:0;
-                                    left:rem-calc(10);
+                                    left:rem-calc(30);
                                     transform: translate3d(0,30%,0);
                                 }
                                 #wrap{
@@ -218,23 +204,11 @@
                                 color:#5B906D;
                             }
                             #front{
-                                #icon{
-                                    width:rem-calc(83);
-                                    height:rem-calc(83);
-                                    background:$lightgreen;
-                                    border-radius: 50%;
-                                    position: absolute;
-                                    top:rem-calc(40);
-                                    left:rem-calc(50);
-                                    &:after{
-                                        content:'';
-                                        width:100%;
-                                        height:100%;
-                                        background: url($basePath+'/images/solutions4.png') center no-repeat;
-                                        background-size:rem-calc(62);
-                                        mix-blend-mode: luminosity;
-                                        display: block;
-                                    }
+                                &:after{
+                                    top:rem-calc(30);
+                                    left:rem-calc(30);
+                                    background: url($basePath+'/images/s_Icon_4.png') center no-repeat;
+                                    background-size:100%;
                                 }
                                 #wrap{
                                     #title{
@@ -316,20 +290,27 @@
                         height:100%;
                         position: relative;
                         background-size:cover;
+                        background-position: center;
                         transition: all .6s cubic-bezier(0.33, 1, 0.68, 1);
                         #front{
                             width:100%;
                             height:100%;
-                            padding:rem-calc(30 45 30);
+                            padding:rem-calc(30);
                             position: relative;
                             opacity: 1;
                             visibility: visible;
                             transition: all .3s cubic-bezier(0.33, 1, 0.68, 1);
+                            &:after{
+                                content:'';
+                                width:5vw;
+                                height:5vw;
+                                position: absolute;
+                            }
                             #wrap{
                                 width: 100%;
                                 svg{
-                                    width:rem-calc(55);
-                                    height:rem-calc(41);
+                                    width:rem-calc(40);
+                                    height:rem-calc(40 * 0.745);
                                 }
                                 h1{
                                     text-transform: uppercase;
@@ -436,5 +417,174 @@
     }
     100%{
         transform: translate3d(0,0,0);
+    }
+}
+
+// tablet
+@media only screen and (max-width: 1024px) {
+    #solutions{
+        #outerWrap{
+            #listWrap{
+                &>ul{
+                    grid-template-columns: 29vw 29vw auto;
+                    &>li{
+                        &:hover{
+                            a{
+                                box-shadow:none;
+                                z-index: 3;
+                                transform: none;
+                            }
+                            &.hasBack{
+                                #front{
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                #back{
+                                    opacity: 0;
+                                    visibility: hidden;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #solutions{
+        #description{
+            padding-bottom:rem-calc(250);
+            #wrap{
+                #icon{
+                    top:rem-calc(150);
+                }
+                p{
+                    width:100%;
+                }
+            }
+            #bgWrap #bg span:nth-child(1):before{
+                width: 70vw;
+                height: 70vw;
+            }
+        }
+        #outerWrap{
+            #listWrap{
+                & > ul{
+                    grid-template-columns: calc(100vw - #{rem-calc(60 * 2)});
+                    grid-auto-rows:calc(80vw - #{rem-calc(60)});
+                    &>li{
+                        grid-column-start: initial !important;
+                        grid-column-end: initial !important;
+                        grid-row-start: initial !important;
+                        grid-row-end: initial !important;
+                        &:nth-child(2) a #front:after,
+                        &:nth-child(5) a #front #icon{
+                            bottom: auto;
+                            top: rem-calc(30);
+                            right: rem-calc(30);
+                            left: auto;
+                        }
+                        &:nth-child(4) a #front:after{
+                            bottom:rem-calc(30);
+                            transform: none;
+                        }
+                        a{
+                            #front{
+                                &:after{
+                                    width:10vw;
+                                    height:10vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #ourpartners #marquee ul li{
+                width:20vw;
+            }
+        }
+    }
+}
+
+// mobile
+@media only screen and (max-width: 700px) {
+    #solutions{
+        #description{
+            padding-top:rem-calc(40);
+            padding-bottom:rem-calc(180);
+            #wrap #icon{
+                right:5%;
+            }
+        }
+        #outerWrap{
+            #listWrap{
+                padding-top:rem-calc(28);
+                & > ul{
+                    grid-template-columns: calc(100vw - #{rem-calc(28 * 2)});
+                    grid-auto-rows:calc(100vw - #{rem-calc(28)});
+                    & > li{
+                        &:nth-child(2) a #front{
+                            align-items: flex-start;
+                            #wrap{
+                                flex-direction: column-reverse;
+                                align-items: initial;
+                                justify-content: initial;
+                            }
+                        }
+                        &:nth-child(5) a #front #wrap{
+                            #title{
+                                position: initial;
+                                top:0;
+                                transform: none;
+                            }
+                            h6{
+                                position: relative;
+                                bottom:0;
+                            }
+                        }
+                        a{
+                            #front{
+                                padding:rem-calc(20);
+                                &:after{
+                                    width:15vw;
+                                    height:15vw;
+                                    bottom:rem-calc(20) !important;
+                                    left:rem-calc(20) !important;
+                                    top:auto !important;
+                                    right:auto !important;
+                                }
+                                #wrap{
+                                    h1{
+                                        word-break: initial;
+                                        @include setFont(30, 40);
+                                    }
+                                    h2{
+                                        margin-bottom:rem-calc(20) !important;
+                                    }
+                                    h6{
+                                        width:100% !important;
+                                    }
+                                    svg{
+                                        position: absolute;
+                                        bottom:rem-calc(20) !important;
+                                        right:rem-calc(20) !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #ourpartners{
+                h4{
+                    margin-bottom:rem-calc(40);
+                }
+                #marquee ul li {
+                    width: 40vw;
+                }
+            }
+        }
     }
 }

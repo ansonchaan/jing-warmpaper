@@ -47,6 +47,7 @@ const About = () => {
                                 </filter>
                             </defs>
                             <g clipPath="url(#myClip)">
+                                <rect fill="#ffd0b9" x="0" y="0" width="100%" height="100%" />
                                 <circle cx="900" cy="140" r="200" filter="url(#blur)" />
                                 <circle cx="1300" cy="140" r="150" filter="url(#blur)" opacity=".6" />
                             </g>
