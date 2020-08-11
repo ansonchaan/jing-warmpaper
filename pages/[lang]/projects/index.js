@@ -210,7 +210,7 @@ const Projects = () => {
                                             <span className={`tag ${mapcattotag[v.category].tag} h6 b`}>{mapcattotag[v.category].name}</span>
                                             <div className={`card card_${i}`} onMouseEnter={()=>onEnterCard(i)} onMouseLeave={()=>onLeaveCard(i)}>
                                                 <div id="wrap">
-                                                    <div id="imgWrap"><div id="img" style={{backgroundImage:`url(${basePath}/images/projects${i+1}.png)`}}></div></div>
+                                                    <div id="imgWrap"><div id="img" style={{backgroundImage:`url(${basePath}/images/projects${i%8+1}.png)`}}></div></div>
                                                     <div id="name" className="h4" dangerouslySetInnerHTML={{__html:v.name}}></div>
                                                 </div>
                                                 <div id={v.category === 'system' || v.category === 'ui' || v.category === 'cultural2' ? 'des_s' : 'des'} className="small"></div>
@@ -227,7 +227,7 @@ const Projects = () => {
                         })
                     }
                 </ul>
-                { filter.length && <div id="more" className="h4" onClick={addData}>SEE MORE</div> }
+                { filter.length === 0 && <div id="more" className="h4" onClick={addData}>SEE MORE</div> }
             </div>
         </div>
     )
