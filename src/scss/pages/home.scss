@@ -136,6 +136,7 @@
                 position: absolute;
                 bottom:0;
                 left:rem-calc(70);
+                pointer-events: none;
             }
             a{
                 color:$black;
@@ -196,6 +197,9 @@
                         opacity: 0;
                         visibility: hidden;
                         transition: all .6s cubic-bezier(0.33, 1, 0.68, 1);
+                        &:not(.is-selected){
+                            pointer-events: none;
+                        }
                         &.is-selected{
                             &,
                             & ~ li{

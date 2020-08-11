@@ -18,24 +18,42 @@ const Home = props => {
   const gallery = useRef(null);
   
   useEffect(()=>{
-    let flkty = new Flickity( gallery.current, {cellAlign:'left', pageDots: false});
+    let oldIdx = 0;
+    let flkty = new Flickity( gallery.current, {cellAlign:'left', pageDots: false, selectedAttraction: 1, friction: 1});
     flkty.reposition();
 
     const lth = flkty.slides.length;
+    let newIdx = 0;
+    let draging = false;
+
     flkty.on( 'scroll', function( progress ) {
-      const idx = Math.max(0, Math.ceil(progress / (lth/2-1)) -1);
-      for(let i=0; i<lth; i++){
-        if(idx === i){
-          const elem = flkty.slides[i].cells[0].element;
-          const x = (idx-(progress / (lth/2-1))) * (lth*100);
-          elem.style.transform = `translate3d(${x}%,0,0)`;
-        }
-      }
+      const elem = flkty.slides[newIdx].cells[0].element;
+      const _progress = progress;
+      const p = _progress/(lth/2-1);
+      const x = Math.min(0, (newIdx-p) * (200));
+      elem.style.transform = `translate3d(${x}%,0,0)`;
     });
 
-    flkty.on('select', function(i){
-      setGalleryIdx(i);
-    })
+    flkty.on( 'change', function( index ) {
+      if(index !== oldIdx){
+        if(index > oldIdx)
+          newIdx = oldIdx+1;
+        else if(index < oldIdx)
+          newIdx = oldIdx-1;
+      }
+      oldIdx = newIdx;
+      setGalleryIdx(index);
+    });
+    
+    flkty.on( 'dragStart', function( event, pointer ) {
+      draging = true;
+    });
+
+    flkty.on( 'dragEnd', function( event, pointer ) {
+      draging = false;
+      // oldIdx = newIdx;
+      flkty.select(newIdx);
+    });
 
     for(let i=0; i<lth; i++){
       const elem = flkty.slides[i].cells[0].element;

@@ -227,7 +227,7 @@ const Projects = () => {
                         })
                     }
                 </ul>
-                <div id="more" className="h4" onClick={addData}>SEE MORE</div>
+                { filter.length && <div id="more" className="h4" onClick={addData}>SEE MORE</div> }
             </div>
         </div>
     )
