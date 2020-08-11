@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import gsap from 'gsap'
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 const Nav = (props) => {
     const language = useSelector(state => state.language);
     const page = useSelector(state => state.page);
 
     const [activeMenu, setActiveMenu] = useState(false);
-    // const dispatch = useDispatch();
-    // const route = useRouter();
+    const dispatch = useDispatch();
+    const route = useRouter();
 
     const pages = [['','Home'],['projects','Projects'],['solutions','Solutions'],['about','About'],['contact','Contact']];
 
@@ -56,6 +56,11 @@ const Nav = (props) => {
         onOpenMenu(false);
     }
 
+    const onChangeLang = (_lang) => {
+        onOpenMenu(false);
+        dispatch({type:'UPDATE_LANGUAGE', language: _lang});
+    }
+
     return(
         <div id="nav" className={`${page} ${activeMenu ? 'active' : ''}`}>
             <Link href="/[lang]" as={`/${language}`}><a ref={props.logonameElem} id="logo" className="h3 b"><span>Warmpaper Design</span></a></Link>
@@ -84,6 +89,14 @@ const Nav = (props) => {
                         </Link></div>
                     })
                 }
+                <div id="lang">
+                    <Link href={`/[lang]${page !== 'home' ? `/${page.replace('detail','')}${route.query.post ? `/[post]` : ''}` : ''}`} as={`/tc${page !== 'home' ? `/${page.replace('post','')}${route.query.post ? `/${route.query.post}` : ''}` : ''}`}>
+                        <a className={`tc ${language === 'tc' ? 'active' : ''}`} onClick={()=>onChangeLang('tc')}>中文</a>
+                    </Link>
+                    <Link href={`/[lang]${page !== 'home' ? `/${page.replace('detail','')}${route.query.post ? `/[post]` : ''}` : ''}`} as={`/en${page !== 'home' ? `/${page.replace('post','')}${route.query.post ? `/${route.query.post}` : ''}` : ''}`}>
+                        <a className={`en ${language === 'en' ? 'active' : ''}`} onClick={()=>onChangeLang('en')}>ENG</a>
+                    </Link>
+                </div>
             </div>
             
             <style jsx>{`

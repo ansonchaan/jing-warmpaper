@@ -68,7 +68,7 @@ const Post = props => {
 // })
   
 // export const getStaticPaths = async () => {
-//     const lang = ['en'];
+//     const lang = ['en', 'tc'];
 //     const posts = ['test'];
 //     const paths = [];
 

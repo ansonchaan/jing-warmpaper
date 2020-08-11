@@ -163,7 +163,7 @@ export const getStaticProps = wrapper.getStaticProps( async ({ store, params }) 
 })
   
 export const getStaticPaths = async () => {
-    const lang = ['en'];
+    const lang = ['en','tc'];
 
     const paths = lang.map((v)=>({
         params: { lang: v }

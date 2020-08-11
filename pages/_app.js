@@ -120,6 +120,9 @@ const MyApp = ({ Component, pageProps }) => {
                     font-family:'Okta Neue', sans-serif;
                     font-size: 1.25rem;
                     line-height: 1.875rem;
+                    &.tc{
+                        font-family: 'Noto Sans TC', sans-serif;
+                    }
                 }
             `}</style>
         </>

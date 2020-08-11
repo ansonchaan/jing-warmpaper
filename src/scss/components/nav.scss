@@ -250,6 +250,20 @@
                 }
             }
         }
+        #lang{
+            @include setFont(16, 22);
+            position: absolute;
+            bottom: rem-calc(50);
+            a{
+                padding:rem-calc(7 15);
+                margin-left:rem-calc(-7);
+                opacity: .4;
+                &.active{
+                    opacity: 1;
+                    font-weight: bold;
+                }
+            }
+        }
     }
 }
 

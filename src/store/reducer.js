@@ -15,9 +15,9 @@ const reducer = (state = initialState, action) => {
         case 'UPDATE_LANGUAGE':
             print(action.type, 'green', action.language)
             return { ...state, language: action.language }
-        case 'ADD_COUNT':
-            print(action.type, 'green', state.count + 1)
-            return { ...state, count: state.count + 1 }
+        // case 'ADD_COUNT':
+        //     print(action.type, 'green', state.count + 1)
+        //     return { ...state, count: state.count + 1 }
         case 'UPDATE_PAGE':
             print(action.type, 'green', action.page)
             return { ...state, page:action.page }
