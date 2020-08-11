@@ -30,7 +30,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 
 ## Fetch data from API
-1) Remove all ```getStaticProps``` and ```getStaticPaths```, coz those function can not used together with ```getServerSideProps```
+1) Remove all ```getStaticProps``` and ```getStaticPaths```!!! Coz those functions can not be used together with ```getServerSideProps```
 
 2) Add data to pages
 
