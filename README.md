@@ -19,15 +19,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
 
 ## Fetch data from API
 1) Remove all ```getStaticProps``` and ```getStaticPaths```!!! Coz those functions can not be used together with ```getServerSideProps```
@@ -48,3 +39,14 @@ export const getServerSideProps = wrapper.getServerSideProps( async ({ store }) 
     }
 })
 ```
+3) There are two "next.config.js" files. Delete the original one and rename the "next.config.js [for production server]" to "next.config.js".
+
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
