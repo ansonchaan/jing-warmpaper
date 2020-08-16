@@ -21,7 +21,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 
 ## Fetch data from API
-1) Remove all ```getStaticProps``` and ```getStaticPaths```!!! Coz those functions can not be used together with ```getServerSideProps```
+1) Remove all ```getStaticProps``` and ```getStaticPaths```!!! Because those functions can not be used together with ```getServerSideProps```
 
 2) Add data to pages
 
@@ -39,7 +39,9 @@ export const getServerSideProps = wrapper.getServerSideProps( async ({ store }) 
     }
 })
 ```
-3) There are two "next.config.js" files. Delete the original one and rename the "next.config.js [for production server]" to "next.config.js".
+3) Then use ```props.data``` instead of ```tempData```
+4) There are two "next.config.js" files. Delete the original one and rename the "next.config.js [for production server]" to "next.config.js".
+5) Finally, it can be fetched data from API
 
 
 ## Learn More
