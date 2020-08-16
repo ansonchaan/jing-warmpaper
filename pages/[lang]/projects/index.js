@@ -11,7 +11,9 @@ const Projects = () => {
     const language = useSelector(state => state.language);
     // const dispatch = useDispatch();
     const [prevLth, setPrevLth] = useState(0);
+    const [allItemLth, setAllItemLth] = useState(0);
     const [filter, setFilter] = useState([]);
+    const [filteredLth, setFilteredLth] = useState(0);
     const [cards, setCards] = useState([]);
     const route = useRouter();
     const { basePath } = route;
@@ -73,6 +75,7 @@ const Projects = () => {
             li.push(o);
         }
         setCards(li);
+        setAllItemLth(iso.current.items.length);
 
         setTimeout(()=>{
             iso.current.layout();
@@ -83,6 +86,7 @@ const Projects = () => {
         if(iso.current && data.length > 8){
             iso.current.reloadItems();
             iso.current.arrange();
+            setAllItemLth(iso.current.items.length);
 
             const li = [];
             for(let i=prevLth; i<data.length; i++){
@@ -102,9 +106,13 @@ const Projects = () => {
     useEffect(()=>{
         if(filter.length && iso.current){
             iso.current.arrange({filter: filter});
+            console.log(iso.current)
+            setFilteredLth(iso.current.filteredItems.length);
         }
         else{
             iso.current.arrange({filter: ''});
+            setFilteredLth(0);
+            console.log(iso.current)
         }
     },[filter])
 
@@ -227,7 +235,17 @@ const Projects = () => {
                         })
                     }
                 </ul>
-                { filter.length === 0 && <div id="more" className="h4" onClick={addData}>SEE MORE</div> }
+                {
+                    iso.current &&
+                    <>
+                        {
+                            (allItemLth > 8 && filter.length === 0) || (filteredLth > 8 && filter.length !== 0) ?
+                                <div id="more" className="h4" onClick={addData}>SEE MORE</div>
+                            :
+                                <></>
+                        }
+                    </>
+                }
             </div>
         </div>
     )

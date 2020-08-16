@@ -101,20 +101,25 @@
                 margin-top:rem-calc(15);
                 color:$gray;
             }
-            h2>span{
-                overflow: hidden;
-                display: inline-flex;
-                position: relative;
-                div{
-                    content:'';
-                    width:100%;
-                    height:rem-calc(3);
-                    background:$black;
-                    position: absolute;
-                    bottom:rem-calc(6);
-                    left:0;
-                    transform-origin: left;
-                    transform: translate3d(0,0,0) scaleX(1);
+            h2{
+                p{
+                    display: inline;
+                }
+                &>span{
+                    overflow: hidden;
+                    display: inline-flex;
+                    position: relative;
+                    div{
+                        content:'';
+                        width:100%;
+                        height:rem-calc(3);
+                        background:$black;
+                        position: absolute;
+                        bottom:rem-calc(6);
+                        left:0;
+                        transform-origin: left;
+                        transform: translate3d(0,0,0) scaleX(1);
+                    }
                 }
             }
         }

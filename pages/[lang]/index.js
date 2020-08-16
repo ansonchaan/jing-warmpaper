@@ -7,6 +7,20 @@ import { route } from 'next/dist/next-server/server/router';
 import gsap from 'gsap';
 
 const Flickity = (typeof window !== 'undefined') ? require('flickity') : null
+const _tempData = {
+  "en":{
+    "title":"A Digital Agency.",
+    "slogan":["We make digital Experiences because we are&nbsp;"],
+    "slogan_animText":['designer', 'programmer', 'team player', 'researcher'],
+    "scrollMsg":"Scroll to explore"
+  },
+  "tc":{
+    "title":"一間數位設計工作室",
+    "slogan":["因為我們是","，","所以我們提供數位設計體驗"],
+    "slogan_animText":['設計師', '工程師', '團隊', '研究員'],
+    "scrollMsg":"向下滾動探索更多"
+  }
+}
 
 const Home = props => {
   const language = useSelector(state => state.language);
@@ -104,30 +118,29 @@ const Home = props => {
 
   const data = props.data;
 
+  const tempData = _tempData[language];
+
   return (
     <div id="home">
       <div id="banner" className="center">
-        <div className="bigTitle b">A Digital Agency.</div>
+        <div className="bigTitle b">{tempData.title}</div>
         <div id="slogan">
           {/* <div id="wrap"></div> */}
-          <h2>We make digital Experiences because we are&nbsp;
+          <h2>
+            <p dangerouslySetInnerHTML={{__html:tempData.slogan[0]}}></p>
             <span ref={txtAnimElem}>
-                {
-                  txt[txtIdx].split('').map((v,i)=>{
-                    return <span key={i} dangerouslySetInnerHTML={{__html:v.replace(' ','&nbsp;')}}></span>
-                  })
-                }
-                <div></div>
-              {/* <span>
-                {
-                  txt[txtIdx].split('').map((v,i)=>{
-                    return <span key={i}>{v}</span>
-                  })
-                }
-              </span> */}
+              {
+                tempData.slogan_animText[txtIdx].split('').map((v,i)=>{
+                  return <span key={i} dangerouslySetInnerHTML={{__html:v.replace(' ','&nbsp;')}}></span>
+                })
+              }
+              <div></div>
             </span>
-          .</h2>
-          <h5>Scroll to explore</h5>
+            <p dangerouslySetInnerHTML={{__html:tempData.slogan[1]}}></p>
+            <br/>
+            <p dangerouslySetInnerHTML={{__html:tempData.slogan[2]}}></p>
+          </h2>
+          <h5>{tempData.scrollMsg}</h5>
         </div>
         <div id="bg">
           <span></span>

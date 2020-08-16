@@ -4,6 +4,15 @@ import { useSelector, useDispatch } from 'react-redux'
 import gsap from 'gsap'
 import { useRouter } from 'next/router';
 
+const _tempData = {
+    "en":{
+      "title":"Warmpaper Desgin",
+    },
+    "tc":{
+      "title":"暖紙設計",
+    }
+  }
+
 const Nav = (props) => {
     const language = useSelector(state => state.language);
     const page = useSelector(state => state.page);
@@ -61,9 +70,11 @@ const Nav = (props) => {
         dispatch({type:'UPDATE_LANGUAGE', language: _lang});
     }
 
+    const tempData = _tempData[language];
+
     return(
         <div id="nav" className={`${page} ${activeMenu ? 'active' : ''}`}>
-            <Link href="/[lang]" as={`/${language}`}><a ref={props.logonameElem} id="logo" className="h3 b"><span>Warmpaper Design</span></a></Link>
+            <Link href="/[lang]" as={`/${language}`}><a ref={props.logonameElem} id="logo" className="h3 b"><span>{tempData.title}</span></a></Link>
             <div id="menuBtn" className={activeMenu ? 'active' : ''}>
                 <div id="default" onClick={()=>!activeMenu && onOpenMenu(true)}>
                     <span><span></span></span>
