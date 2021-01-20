@@ -14,7 +14,7 @@
     "emotion": "^10.0.27",
     "emotion-server": "^10.0.27",
     "flickity": "^2.2.1",
-    "gsap": "^3.3.1",
+    "gsap": "^3.6.0",
     "isotope-layout": "^3.0.6",
     "next": "9.4.4",
     "next-redux-wrapper": "^6.0.2",
